@@ -315,6 +315,26 @@ var array =[{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
+},{
+  "type": "pd_save_fig",
+  "message0": "保存图表为 %1 %2",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "filename",
+      "text": "example"
+    },
+    {
+      "type": "field_input",
+      "name": "ext",
+      "text": ".png"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 
 Blockly.defineBlocksWithJsonArray(array)

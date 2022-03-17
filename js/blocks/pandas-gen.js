@@ -148,3 +148,11 @@ Blockly.Python["pd_plot_show"] = function (block) {
   var code = "plt.show()\n";
   return code;
 };
+
+Blockly.Python['pd_save_fig'] = function(block) {
+  var text_filename = block.getFieldValue('filename');
+  var text_ext = block.getFieldValue('ext');
+  // TODO: Assemble Python into code variable.
+  var code = `plt.savefig('${text_filename}${text_ext}')\n`;
+  return code;
+};

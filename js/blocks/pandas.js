@@ -332,7 +332,97 @@ var array =[{
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 135,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "pd_get_column_by_loc",
+  "message0": "获取 %1 的第 %2 列数据",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "item"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Series",
+  "colour": 285,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "pd_get_column_by_name",
+  "message0": "获取 %1 的 %2 列数据",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "item"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Series",
+  "colour": 285,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "pd_get_row_by_loc",
+  "message0": "获取 %1 的第 %2 行数据",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "item"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Series",
+  "colour": 285,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "pd_set_new_column",
+  "message0": "在 %1 设置或添加 %2 %3 列，数据为 %4",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "variable",
+      "variable": "item"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "column_name",
+      "check": "String"
+    },
+    {
+      "type": "input_value",
+      "name": "data"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 210,
   "tooltip": "",
   "helpUrl": ""
 }]

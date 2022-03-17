@@ -50,7 +50,7 @@
       <field name="FLOW">BREAK</field>
     </block>
   </category>
-  <category name="Math" colour="#5b67a5">
+  <category name="运算" colour="#5b67a5">
     <block type="math_number">
       <field name="NUM">0</field>
     </block>
@@ -352,8 +352,37 @@
       </value>
     </block>
   </category>
+  <category name="字典">
+    <block type="dict_create">
+      <value name="d1">
+        <block type="dict_component">
+          <value name="k">
+            <block type="text">
+              <field name="TEXT">第1个键</field>
+            </block>
+          </value>
+        </block>
+      </value>
+      <value name="d2">
+        <block type="dict_component">
+          <value name="k">
+            <block type="text">
+              <field name="TEXT">第2个键</field>
+            </block>
+          </value>
+        </block>
+      </value>
+    </block>
+    <block type="dict_component">
+      <value name="v">
+        <block type="text">
+          <field name="TEXT">值</field>
+        </block>
+      </value>
+    </block>
+  </category>
   <sep></sep>
-  <category name="pandas">
+  <category name="数据表格">
     <block type="import_pandas"></block>
     <block type="pd_create_series">
       <value name="data">
@@ -440,8 +469,47 @@
         </block>
       </value>
     </block>
+    <block type="pd_get_column_by_loc">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="NAME">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_get_column_by_name">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="NAME">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_get_row_by_loc">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="NAME">
+        <block type="math_number">
+          <field name="NUM">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_set_new_column">
+      <field name="variable" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="column_name">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="数据表格运算">
+    <block type="math_calculate">
+      <field name="operator">+</field>
+    </block>
+  </category>
+  <category name="可视化">
     <block type="pd_plot">
-      <field name="data" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
       <field name="color">#ff0000</field>
       <field name="linestyle">solid</field>
       <field name="x"></field>
@@ -451,7 +519,7 @@
       <field name="markersize">0</field>
     </block>
     <block type="pd_plot_bar">
-      <field name="variable" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
       <field name="barh">bar</field>
       <field name="stacked">T</field>
       <field name="alpha">1</field>
@@ -461,34 +529,11 @@
       <field name="ext">.png</field>
     </block>
   </category>
-  <category name="字典">
-    <block type="dict_create">
-      <value name="d1">
-        <block type="dict_component">
-          <value name="k">
-            <block type="text">
-              <field name="TEXT">第1个键</field>
-            </block>
-          </value>
-        </block>
-      </value>
-      <value name="d2">
-        <block type="dict_component">
-          <value name="k">
-            <block type="text">
-              <field name="TEXT">第2个键</field>
-            </block>
-          </value>
-        </block>
-      </value>
-    </block>
-    <block type="dict_component">
-      <value name="v">
-        <block type="text">
-          <field name="TEXT">值</field>
-        </block>
-      </value>
-    </block>
+  <category name="输出">
+    <block type="output_print"></block>
+  </category>
+  <category name="公式">
+    <block type="formula_g"></block>
   </category>
   <sep></sep>
   <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>

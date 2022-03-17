@@ -1,5 +1,5 @@
 Blockly.Python["import_pandas"] = function (block) {
-  // TODO: Assemble JavaScript into code variable.
+  // TODO: Assemble Python into code variable.
   var code = "import pandas as pd\n";
   code += `import matplotlib.pyplot as plt\n`
   code += `plt.rcParams["font.sans-serif"]=["SimHei"]\n`
@@ -154,5 +154,41 @@ Blockly.Python['pd_save_fig'] = function(block) {
   var text_ext = block.getFieldValue('ext');
   // TODO: Assemble Python into code variable.
   var code = `plt.savefig('${text_filename}${text_ext}')\n`;
+  return code;
+};
+
+Blockly.Python['pd_get_column_by_loc'] = function(block) {
+  var variable_name = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_name}.iloc[:,${value_name}]`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['pd_get_column_by_name'] = function(block) {
+  var variable_name = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_name}[${value_name}]`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['pd_get_row_by_loc'] = function(block) {
+  var variable_name = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_name}.iloc[${value_name}]`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['pd_set_new_column'] = function(block) {
+  var variable_variable = Blockly.Python.nameDB_.getName(block.getFieldValue('variable'), Blockly.Variables.NAME_TYPE);
+  var value_column_name = Blockly.Python.valueToCode(block, 'column_name', Blockly.Python.ORDER_ATOMIC);
+  var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_NONE);
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_variable}[${value_column_name}] = ${value_data}\n`;
   return code;
 };

@@ -1,0 +1,129 @@
+/* main 模块 */
+
+.container {
+    padding-top: 6rem;
+}
+
+.left {
+    float: left;
+    width: 22%;
+    height: 50rem;
+    padding: 25px 0px 60px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.left>ul {
+    max-width: 96%;
+}
+
+.left>ul>li {
+    margin-top: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.left>ul>li>a {
+    font-weight: 600;
+}
+
+.left a:hover {
+    color: #3DA19F;
+    border-bottom: 1px solid #3DA19F;
+    /* font-weight: 600; */
+}
+
+.left>ul li ul {
+    padding-left: 2rem;
+}
+
+.left>ul>li ul li {
+    margin-top: 0.5em;
+    font-size: 16px;
+}
+
+.list-title {
+    font-size: 18px;
+}
+
+.right {
+    float: left;
+    width: 70%;
+    height: 50rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.content {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+    /* padding-left: 50px; */
+}
+
+.content h1 {
+    margin: 2em 0 1em;
+    color: #3DA19F;
+}
+
+.content h2 {
+    margin: 45px 0 0.8em;
+    padding-bottom: 0.7em;
+    border-bottom: 1px solid #ddd;
+}
+
+.content h2 a,
+.content h3 a {
+    pointer-events: auto;
+    color: #273849;
+}
+
+.content p {
+    line-height: 1.6em;
+    margin: 1.2em 0 -1.2em;
+    padding-bottom: 1.2em;
+    position: relative;
+    z-index: 1;
+}
+
+.video {
+    position: relative;
+    background-color: #e7ecf3;
+    padding: 1rem 1.25rem;
+    border-radius: 2px;
+    color: #486491;
+}
+
+.video a {
+    color: #486491 !important;
+    position: relative;
+    padding-left: 36px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.video a::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    top: -5px;
+    left: -4px;
+    border-radius: 50%;
+    background-color: #73abfe;
+}
+
+.video a::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    top: 5px;
+    left: 8px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid #fff;
+}

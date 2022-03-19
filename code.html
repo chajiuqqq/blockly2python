@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO优化 -->
+    <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
+    <!-- 网站说明 -->
+    <meta name="description" content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
+    <!-- 关键字 -->
+    <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
+    <!-- 引入favicon图标  -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- 引入初始化样式文件 -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 引入公共样式文件 -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- 引入index.css -->
+    <link rel="stylesheet" href="css/code.css">
+    <!-- 引入blockly js文件 -->
+    <script src="js/blockly_compressed.js"></script>
+    <script src="js/blocks_compressed.js"></script>
+    <script src="js/msg/zh-hans.js"></script>
+    <script src="js/python_compressed.js"></script>
+    <script src="js/string_block.js"></script>
+</head>
+
+
+<xml id="toolbox" style="display: block">
+    <category name="Control">
+        <block type="controls_if"></block>
+        <category name="Logic">
+            <block type="logic_compare"></block>
+            <block type="logic_operation"></block>
+            <block type="logic_boolean"></block>
+        </category>
+</xml>
+
+
+
+<body>
+    <!-- 导航模块 start -->
+    <nav class="nav">
+        <div class="banner">
+            <div class="img">
+
+            </div>
+            <div class="title">
+                从 Blockly 到 Python 数据分析与可视化
+            </div>
+
+            <div class="navitems">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <div class="box">
+                                <div class="front">主页</div>
+                                <div class="bottom">进入</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="example.html">
+                            <div class="box">
+                                <div class="front">教程</div>
+                                <div class="bottom">进入</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="code.html">
+                            <div class="box">
+                                <div class="front">编辑区</div>
+                                <div class="bottom">进入</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+    <!-- 导航模块 end -->
+
+
+    <!-- main主体模块 start -->
+    <div class="banner main">
+        <div id='blocklyDiv' class="blocklyDiv">
+
+        </div>
+        <textarea class="pythontext" rows="41" cols="100"></textarea>
+    </div>
+    <!-- main主体模块 end -->
+
+    <!-- footer模块 start -->
+    <footer class="footer">
+        <div class="w">
+
+        </div>
+    </footer>
+    <!-- footer模块 end -->
+</body>
+
+<script>
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: document.getElementById('toolbox')
+    });
+</script>
+
+</html>

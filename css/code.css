@@ -1,0 +1,15 @@
+.main {
+    overflow: hidden;
+}
+
+.blocklyDiv {
+    float: left;
+    width: 50%;
+    height: 39rem;
+    margin-top: 12%;
+}
+
+.pythontext {
+    float: left;
+    margin-top: 12%;
+}

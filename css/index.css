@@ -1,0 +1,204 @@
+/* main 模块 */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?mg92lq');
+    src: url('../fonts/icomoon.eot?mg92lq#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?mg92lq') format('truetype'), url('../fonts/icomoon.woff?mg92lq') format('woff'), url('../fonts/icomoon.svg?mg92lq#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.main {
+    overflow: hidden;
+}
+
+.main-box-img {
+    position: relative;
+    width: 100%;
+    height: 58rem;
+    background: url('../upload/index.jpg') no-repeat;
+    background-size: 100% auto;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .3);
+}
+
+.mask-mask {
+    position: absolute;
+    top: 29%;
+    left: 77.8%;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 9999;
+}
+
+.mask-mask-mask {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.line1 {
+    position: absolute;
+    top: 79.5%;
+    width: 100%;
+    border: 2px solid #fff;
+}
+
+.line2 {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    border: 2px solid #fff;
+    left: 13.5%;
+}
+
+.main-box {
+    position: absolute;
+    top: 32.5%;
+    left: 16.5%;
+    font-size: 24px;
+    line-height: 2rem;
+    z-index: 999;
+    color: black;
+    height: 43%;
+    background: rgba(255, 255, 255, .7);
+    width: 63%;
+    padding-left: 5%;
+    font-family: "YouYuan";
+    padding-right: 5%;
+}
+
+.main-box div {
+    margin-top: 4rem;
+}
+
+.main-box span {
+    margin-left: 2%;
+}
+
+.main-box i {
+    font-family: 'icomoon';
+}
+
+.main-box div:nth-child(1) i {
+    color: #FF5722
+}
+
+.main-box div:nth-child(2) i {
+    color: #FFB800
+}
+
+.main-box div:nth-child(3) i {
+    color: #3DA19F
+}
+
+.main-box1 {
+    margin-top: 5rem;
+}
+
+.main-box2 {
+    margin-top: 7rem;
+}
+
+.left-text {
+    float: left;
+    width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.left-text div {
+    padding-top: 6rem;
+}
+
+.left-text h1,
+.right-text h1 {
+    color: #3DA19F;
+    font-size: 44px;
+}
+
+.right-text h1 {
+    margin-bottom: 1.5%;
+}
+
+.left-text p {
+    letter-spacing: 0.07em;
+    font-size: 20px;
+    margin-top: 5%;
+    font-family: "YouYuan";
+}
+
+.right-img {
+    float: right;
+    width: 50%;
+    height: 28rem;
+    background: url('../upload/index1.jpg') no-repeat;
+    background-size: 100% auto;
+}
+
+.right-img2 {
+    float: right;
+    width: 50%;
+    height: 35rem;
+    background: url('../upload/index3.jpg') no-repeat;
+    background-size: 100% auto;
+}
+
+.left-img {
+    float: left;
+    width: 50%;
+    height: 28rem;
+    background: url('../upload/index2.jpg') no-repeat;
+    background-size: 100% auto;
+}
+
+.right-text {
+    float: right;
+    width: 50%;
+}
+
+.right-text ul li,
+.right-text p {
+    letter-spacing: 0.07em;
+    margin-top: 1%;
+    font-family: "YouYuan";
+    text-indent: 2rem;
+}
+
+.right-text p {
+    font-size: 20px;
+}
+
+.right-text ul li {
+    list-style: inside;
+    font-size: 17px;
+}
+
+.left-text table {
+    border-collapse: collapse;
+    margin-top: 10%;
+    width: 80%;
+    text-align: center;
+    font-size: 24px;
+    color: #808080;
+}
+
+.left-text tr {
+    height: 3rem;
+    border-bottom: 1px solid grey;
+}

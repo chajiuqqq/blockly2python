@@ -1,5 +1,5 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="Logic" colour="#5b80a5">
+  <category name="逻辑" colour="#5b80a5">
     <block type="controls_if"></block>
     <block type="logic_compare">
       <field name="OP">EQ</field>
@@ -14,7 +14,7 @@
     <block type="logic_null"></block>
     <block type="logic_ternary"></block>
   </category>
-  <category name="Loops" colour="#5ba55b">
+  <category name="循环" colour="#5ba55b">
     <block type="controls_repeat_ext">
       <value name="TIMES">
         <shadow type="math_number">
@@ -150,7 +150,7 @@
     </block>
     <block type="math_random_float"></block>
   </category>
-  <category name="Text" colour="#5ba58c">
+  <category name="文本" colour="#5ba58c">
     <block type="text">
       <field name="TEXT"></field>
     </block>
@@ -244,7 +244,7 @@
       </value>
     </block>
   </category>
-  <category name="Lists" colour="#745ba5">
+  <category name="列表" colour="#745ba5">
     <block type="lists_create_with">
       <mutation items="0"></mutation>
     </block>
@@ -312,7 +312,7 @@
       <field name="DIRECTION">1</field>
     </block>
   </category>
-  <category name="Colour" colour="#a5745b">
+  <category name="颜色" colour="#a5745b">
     <block type="colour_picker">
       <field name="COLOUR">#ff0000</field>
     </block>
@@ -352,7 +352,7 @@
       </value>
     </block>
   </category>
-  <category name="字典">
+  <category name="字典" colour="#5b67a5">
     <block type="dict_create">
       <value name="d1">
         <block type="dict_component">
@@ -382,7 +382,7 @@
     </block>
   </category>
   <sep></sep>
-  <category name="数据表格">
+  <category name="数据表格" colour="#5ba55b">
     <block type="import_pandas"></block>
     <block type="pd_create_series">
       <value name="data">
@@ -502,12 +502,12 @@
       </value>
     </block>
   </category>
-  <category name="数据表格运算">
+  <category name="数据表格运算" colour="#5ba58c">
     <block type="math_calculate">
       <field name="operator">+</field>
     </block>
   </category>
-  <category name="可视化">
+  <category name="可视化" colour="#5b67a5">
     <block type="pd_plot">
       <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
       <field name="color">#ff0000</field>
@@ -529,13 +529,13 @@
       <field name="ext">.png</field>
     </block>
   </category>
-  <category name="输出">
+  <category name="输出" colour="#5b80a5">
     <block type="output_print"></block>
   </category>
-  <category name="公式">
+  <category name="公式" colour="#995ba5">
     <block type="formula_g"></block>
   </category>
   <sep></sep>
-  <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
-  <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
+  <category name="变量" colour="#a55b80" custom="VARIABLE"></category>
+  <category name="函数" colour="#995ba5" custom="PROCEDURE"></category>
 </xml>

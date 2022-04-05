@@ -127,10 +127,9 @@ var array =[{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-},
-{
+},{
   "type": "pd_plot",
-  "message0": "创建 %1 的折线图， 颜色是 %2 ，线型是 %3 %4 x轴是 %5 ，y轴是 %6 %7 标记是 %8 ，标记颜色是 %9 ，标记大小是 %10",
+  "message0": "创建 %1 的折线图， 颜色是 %2 ，线型是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴 %7 标记是 %8 ，标记颜色是 %9 ，标记大小是 %10",
   "args0": [
     {
       "type": "field_variable",
@@ -168,14 +167,16 @@ var array =[{
       "type": "input_dummy"
     },
     {
-      "type": "field_input",
+      "type": "field_number",
       "name": "x",
-      "text": ""
+      "value": 1,
+      "min": 1
     },
     {
-      "type": "field_input",
+      "type": "field_number",
       "name": "y",
-      "text": ""
+      "value": 2,
+      "min": 1
     },
     {
       "type": "input_dummy"
@@ -442,8 +443,8 @@ var array =[{
     {
       "type": "field_number",
       "name": "s",
-      "value": 0,
-      "min": 0
+      "value": 20,
+      "min": 1
     },
     {
       "type": "input_dummy"
@@ -496,7 +497,7 @@ var array =[{
     {
       "type": "field_number",
       "name": "s",
-      "value": 1,
+      "value": 20,
       "min": 1
     },
     {
@@ -529,8 +530,73 @@ var array =[{
       "min": 1
     }
   ],
-  "output": null,
+  "previousStatement": null,
+  "nextStatement": null,
   "colour": 135,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "pd_describe",
+  "message0": "获取 %1 描述性统计信息",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    }
+  ],
+  "output": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "pd_dropna",
+  "message0": "丢弃 %1 含有缺失值的行",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "pd_fillna",
+  "message0": "填充 %1 的缺失值，策略是 %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "strategy",
+      "options": [
+        [
+          "前值填充",
+          "ffill"
+        ],
+        [
+          "后值填充",
+          "bfill"
+        ],
+        [
+          "指定值",
+          "valuefill"
+        ]
+      ]
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 }]

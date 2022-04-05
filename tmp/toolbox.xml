@@ -400,27 +400,6 @@
   <sep></sep>
   <category name="数据表格" colour="#5ba55b">
     <block type="import_pandas"></block>
-    <block type="pd_create_series">
-      <value name="data">
-        <block type="list">
-          <value name="v1">
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
-          </value>
-          <value name="v2">
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
-          </value>
-          <value name="v3">
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
-          </value>
-        </block>
-      </value>
-    </block>
     <block type="pd_read_excel">
       <value name="NAME">
         <block type="text">
@@ -496,7 +475,7 @@
       <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
       <value name="NAME">
         <block type="math_number">
-          <field name="NUM">0</field>
+          <field name="NUM">1</field>
         </block>
       </value>
     </block>
@@ -512,7 +491,7 @@
       <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
       <value name="NAME">
         <block type="math_number">
-          <field name="NUM">0</field>
+          <field name="NUM">1</field>
         </block>
       </value>
     </block>
@@ -526,22 +505,41 @@
     </block>
   </category>
   <category name="数据表格运算" colour="#5ba58c">
+    <block type="math_import"></block>
     <block type="import_statistics"></block>
     <block type="math_calculate">
       <field name="operator">+</field>
     </block>
+    <block type="math_mean"></block>
     <block type="py_statistics"></block>
   </category>
+  <category name="数据预处理" colour="#995ba5">
+    <block type="pd_describe">
+      <field name="item" id="[(sY)c;(Sk(2F=^PIom%">item</field>
+    </block>
+    <block type="pd_dropna">
+      <field name="item" id="[(sY)c;(Sk(2F=^PIom%">item</field>
+    </block>
+    <block type="pd_fillna">
+      <field name="item" id="[(sY)c;(Sk(2F=^PIom%">item</field>
+      <field name="strategy">ffill</field>
+    </block>
+  </category>
   <category name="可视化" colour="#5b67a5">
-    <block type="pd_plot">
-      <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
-      <field name="color">#ff0000</field>
-      <field name="linestyle">solid</field>
-      <field name="x"></field>
-      <field name="y"></field>
-      <field name="marker">None</field>
-      <field name="markerfacecolor">#ff0000</field>
-      <field name="markersize">0</field>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot">
+          <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="color">#ff0000</field>
+          <field name="linestyle">solid</field>
+          <field name="x">1</field>
+          <field name="y">2</field>
+          <field name="marker">None</field>
+          <field name="markerfacecolor">#ff0000</field>
+          <field name="markersize">0</field>
+        </block>
+      </value>
     </block>
     <block type="pd_plot_scatter_line">
       <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
@@ -567,7 +565,35 @@
     <block type="output_print"></block>
   </category>
   <category name="公式" colour="#995ba5">
-    <block type="formula_g"></block>
+    <block type="formula_g">
+      <value name="T">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="L">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="formula_rou">
+      <value name="d">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="l">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="R">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
   </category>
   <sep></sep>
   <category name="变量" colour="#a55b80" custom="VARIABLE"></category>

@@ -16,7 +16,8 @@ var array = [{
   "output": "dict",
   "colour": 230,
   "tooltip": "",
-  "helpUrl": ""
+  "helpUrl": "",
+  "mutator": "dict_mutator"
 },
 {
   "type": "dict_component",

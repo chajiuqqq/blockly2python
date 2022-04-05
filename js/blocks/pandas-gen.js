@@ -3,7 +3,7 @@ Blockly.Python["import_pandas"] = function (block) {
   var code = "import pandas as pd\n";
   code += `import matplotlib.pyplot as plt\n`
   code += `plt.rcParams["font.sans-serif"]=["SimHei"]\n`
-  code += `plt.rcParams["axes.unicode_minus"]=False\n`
+  code += `plt.rcParams["axes.unicode_minus"]=False\n\n`
 
   return code;
 };
@@ -119,11 +119,47 @@ Blockly.Python["pd_plot"] = function (block) {
   if(dropdown_marker!='None'){
     code += `,marker='${dropdown_marker}',markerfacecolor='${colour_markerfacecolor}',markersize=${number_markersize}`
   }
-  code += ')'
+  code += ')\n'
   // TODO: Change ORDER_NONE to the correct strength.
 
   return [code, Blockly.Python.ORDER_NONE];
 };
+
+Blockly.Python['pd_plot_scatter'] = function(block) {
+  var variable_data = Blockly.Python.nameDB_.getName(block.getFieldValue('data'), Blockly.Variables.NAME_TYPE);
+  var colour_color = block.getFieldValue('color');
+  var number_s = block.getFieldValue('s');
+  var number_xlabel = block.getFieldValue('xlabel')-1;
+  var number_ylabel = block.getFieldValue('ylabel')-1;
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_data}.plot.scatter(x=${number_xlabel},y=${number_ylabel},s=${number_s},c='${colour_color}'\n`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
+Blockly.Python['pd_plot_scatter_line'] = function(block) {
+  var variable_data = Blockly.Python.nameDB_.getName(block.getFieldValue('data'), Blockly.Variables.NAME_TYPE);
+  var colour_color = block.getFieldValue('color');
+  var number_s = block.getFieldValue('s');
+  var number_xlabel = block.getFieldValue('xlabel');
+  var number_ylabel = block.getFieldValue('ylabel');
+  var colour_name = block.getFieldValue('NAME');
+  var number_thin = block.getFieldValue('thin');
+  // TODO: Assemble Python into code variable.
+  var code = `ax1 = ${variable_data}.plot.scatter(x=${number_xlabel},y=${number_ylabel},s=${number_s},c='${colour_color}'\n`;
+  code += `
+	import statistics
+	slope,intercept = statistics.linear_regression(${value_x}, ${value_y})
+	x = ${variable_data}.iloc[:,${value_x}]
+	new_y = slope * x + intercept
+	new_df = pd.DataFrame({'x':x,'y':new_y})
+	new_df.plot(x='x',y='y',ax = ax1,color='${colour_name}',lw=${number_thin},legend=False)
+	\n
+  `
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
+};
+
 
 Blockly.Python['pd_plot_bar'] = function(block) {
   var variable_variable = Blockly.Python.nameDB_.getName(block.getFieldValue('variable'), Blockly.Variables.NAME_TYPE);
@@ -138,10 +174,11 @@ Blockly.Python['pd_plot_bar'] = function(block) {
   }else{
     code+=`stacked=False`
   }
-  code+=')'
+  code+=')\n'
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
+
 
 Blockly.Python["pd_plot_show"] = function (block) {
   // TODO: Assemble Python into code variable.
@@ -161,7 +198,7 @@ Blockly.Python['pd_get_column_by_loc'] = function(block) {
   var variable_name = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
   // TODO: Assemble Python into code variable.
-  var code = `${variable_name}.iloc[:,${value_name}]`;
+  var code = `${variable_name}.iloc[:,${value_name}]\n`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
@@ -170,7 +207,7 @@ Blockly.Python['pd_get_column_by_name'] = function(block) {
   var variable_name = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
   // TODO: Assemble Python into code variable.
-  var code = `${variable_name}[${value_name}]`;
+  var code = `${variable_name}[${value_name}]\n`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
@@ -179,7 +216,7 @@ Blockly.Python['pd_get_row_by_loc'] = function(block) {
   var variable_name = Blockly.Python.nameDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
-  var code = `${variable_name}.iloc[${value_name}]`;
+  var code = `${variable_name}.iloc[${value_name}]\n`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
@@ -191,4 +228,12 @@ Blockly.Python['pd_set_new_column'] = function(block) {
   // TODO: Assemble Python into code variable.
   var code = `${variable_variable}[${value_column_name}] = ${value_data}\n`;
   return code;
+};
+
+Blockly.Python['pd_read_excel'] = function(block) {
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  var code = `pd.read_excel(${value_name})\n`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
 };

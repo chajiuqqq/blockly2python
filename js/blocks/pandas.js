@@ -425,6 +425,114 @@ var array =[{
   "colour": 210,
   "tooltip": "",
   "helpUrl": ""
+},{
+  "type": "pd_plot_scatter",
+  "message0": "创建 %1 的散点图， 标点颜色是 %2 ，标点大小是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "data",
+      "variable": "item"
+    },
+    {
+      "type": "field_colour",
+      "name": "color",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_number",
+      "name": "s",
+      "value": 0,
+      "min": 0
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "xlabel",
+      "value": 1,
+      "min": 1
+    },
+    {
+      "type": "field_number",
+      "name": "ylabel",
+      "value": 2,
+      "min": 1
+    }
+  ],
+  "output": null,
+  "colour": 135,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "pd_read_excel",
+  "message0": "从 %1 中读取数据表格",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    }
+  ],
+  "output": null,
+  "colour": 120,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "pd_plot_scatter_line",
+  "message0": "创建 %1 的散点图， 标点颜色是 %2 ，标点大小是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴 %7 并拟合图像，直线颜色 %8 ，粗细 %9",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "data",
+      "variable": "item"
+    },
+    {
+      "type": "field_colour",
+      "name": "color",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_number",
+      "name": "s",
+      "value": 1,
+      "min": 1
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "xlabel",
+      "value": 1,
+      "min": 1
+    },
+    {
+      "type": "field_number",
+      "name": "ylabel",
+      "value": 2,
+      "min": 1
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_colour",
+      "name": "NAME",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_number",
+      "name": "thin",
+      "value": 1,
+      "min": 1
+    }
+  ],
+  "output": null,
+  "colour": 135,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 
 Blockly.defineBlocksWithJsonArray(array)

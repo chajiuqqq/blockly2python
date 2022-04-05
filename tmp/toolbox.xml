@@ -352,7 +352,7 @@
       </value>
     </block>
   </category>
-  <category name="字典" colour="#5b67a5">
+  <category name="字典和元组" colour="#5b67a5">
     <block type="dict_create">
       <value name="d1">
         <block type="dict_component">
@@ -380,6 +380,22 @@
         </block>
       </value>
     </block>
+    <block type="tuple">
+      <value name="v1">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+      <value name="v2">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="tuple_get_by_index">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <field name="index">1</field>
+    </block>
   </category>
   <sep></sep>
   <category name="数据表格" colour="#5ba55b">
@@ -402,6 +418,13 @@
               <field name="NUM">0</field>
             </block>
           </value>
+        </block>
+      </value>
+    </block>
+    <block type="pd_read_excel">
+      <value name="NAME">
+        <block type="text">
+          <field name="TEXT"></field>
         </block>
       </value>
     </block>
@@ -503,9 +526,11 @@
     </block>
   </category>
   <category name="数据表格运算" colour="#5ba58c">
+    <block type="import_statistics"></block>
     <block type="math_calculate">
       <field name="operator">+</field>
     </block>
+    <block type="py_statistics"></block>
   </category>
   <category name="可视化" colour="#5b67a5">
     <block type="pd_plot">
@@ -517,6 +542,15 @@
       <field name="marker">None</field>
       <field name="markerfacecolor">#ff0000</field>
       <field name="markersize">0</field>
+    </block>
+    <block type="pd_plot_scatter_line">
+      <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <field name="color">#ff0000</field>
+      <field name="s">1</field>
+      <field name="xlabel">1</field>
+      <field name="ylabel">2</field>
+      <field name="NAME">#ff0000</field>
+      <field name="thin">1</field>
     </block>
     <block type="pd_plot_bar">
       <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>

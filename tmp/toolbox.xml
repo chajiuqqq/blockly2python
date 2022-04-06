@@ -353,23 +353,11 @@
     </block>
   </category>
   <category name="字典和元组" colour="#5b67a5">
-    <block type="dict_create">
-      <value name="d1">
-        <block type="dict_component">
-          <value name="k">
-            <block type="text">
-              <field name="TEXT">第1个键</field>
-            </block>
-          </value>
-        </block>
-      </value>
-      <value name="d2">
-        <block type="dict_component">
-          <value name="k">
-            <block type="text">
-              <field name="TEXT">第2个键</field>
-            </block>
-          </value>
+    <block type="dict_create"></block>
+    <block type="dict_component">
+      <value name="k">
+        <block type="text">
+          <field name="TEXT">键</field>
         </block>
       </value>
     </block>
@@ -378,6 +366,34 @@
         <block type="text">
           <field name="TEXT">值</field>
         </block>
+      </value>
+    </block>
+    <block type="dict_get_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="NAME">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="dict_set_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="item">
+        <block type="dict_component">
+          <value name="k">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+        </block>
+      </value>
+    </block>
+    <block type="dict_del_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="key">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
       </value>
     </block>
     <block type="tuple">
@@ -409,26 +425,7 @@
     </block>
     <block type="pd_create_dataframe">
       <value name="data">
-        <block type="dict_create">
-          <value name="d1">
-            <block type="dict_component">
-              <value name="k">
-                <block type="text">
-                  <field name="TEXT">A</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <value name="d2">
-            <block type="dict_component">
-              <value name="k">
-                <block type="text">
-                  <field name="TEXT">B</field>
-                </block>
-              </value>
-            </block>
-          </value>
-        </block>
+        <block type="dict_create"></block>
       </value>
     </block>
     <block type="pd_set_columns">
@@ -541,20 +538,39 @@
         </block>
       </value>
     </block>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot_scatter">
+          <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="NAME">.</field>
+          <field name="color">#ff0000</field>
+          <field name="s">20</field>
+          <field name="xlabel">1</field>
+          <field name="ylabel">2</field>
+        </block>
+      </value>
+    </block>
     <block type="pd_plot_scatter_line">
       <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
       <field name="color">#ff0000</field>
       <field name="s">1</field>
       <field name="xlabel">1</field>
       <field name="ylabel">2</field>
-      <field name="NAME">#ff0000</field>
+      <field name="line_color">#ff0000</field>
+      <field name="line_style">solid</field>
       <field name="thin">1</field>
     </block>
-    <block type="pd_plot_bar">
-      <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
-      <field name="barh">bar</field>
-      <field name="stacked">T</field>
-      <field name="alpha">1</field>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot_bar">
+          <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="barh">bar</field>
+          <field name="stacked">T</field>
+          <field name="alpha">1</field>
+        </block>
+      </value>
     </block>
     <block type="pd_save_fig">
       <field name="filename">example</field>

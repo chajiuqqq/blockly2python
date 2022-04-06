@@ -1,5 +1,5 @@
 
-var array =[{
+var array = [{
   "type": "pd_create_series",
   "message0": "创建序列 %1",
   "args0": [
@@ -127,7 +127,7 @@ var array =[{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_plot",
   "message0": "创建 %1 的折线图， 颜色是 %2 ，线型是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴 %7 标记是 %8 ，标记颜色是 %9 ，标记大小是 %10",
   "args0": [
@@ -228,7 +228,7 @@ var array =[{
   "colour": 135,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_plot_bar",
   "message0": "创建 %1 %2 的柱形图， 类型 %3 ，透明度 %4",
   "args0": [
@@ -316,7 +316,7 @@ var array =[{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_save_fig",
   "message0": "保存图表为 %1 %2",
   "args0": [
@@ -336,7 +336,7 @@ var array =[{
   "colour": 135,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_get_column_by_loc",
   "message0": "获取 %1 的第 %2 列数据",
   "args0": [
@@ -377,7 +377,7 @@ var array =[{
   "colour": 285,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_get_row_by_loc",
   "message0": "获取 %1 的第 %2 行数据",
   "args0": [
@@ -426,14 +426,40 @@ var array =[{
   "colour": 210,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_plot_scatter",
-  "message0": "创建 %1 的散点图， 标点颜色是 %2 ，标点大小是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴",
+  "message0": "创建 %1 的散点图， 标记是 %2 ，标记颜色是 %3 ，标记大小是 %4 %5 第 %6 列作为x轴，第 %7 列作为y轴",
   "args0": [
     {
       "type": "field_variable",
       "name": "data",
       "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "NAME",
+      "options": [
+        [
+          "圆点",
+          "."
+        ],
+        [
+          "圆圈",
+          "o"
+        ],
+        [
+          "x",
+          "x"
+        ],
+        [
+          "星号",
+          "*"
+        ],
+        [
+          "十字",
+          "+"
+        ]
+      ]
     },
     {
       "type": "field_colour",
@@ -466,7 +492,7 @@ var array =[{
   "colour": 135,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_read_excel",
   "message0": "从 %1 中读取数据表格",
   "args0": [
@@ -480,14 +506,40 @@ var array =[{
   "colour": 120,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_plot_scatter_line",
-  "message0": "创建 %1 的散点图， 标点颜色是 %2 ，标点大小是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴 %7 并拟合图像，直线颜色 %8 ，粗细 %9",
+  "message0": "创建 %1 的散点图， 标记是 %2 ，标记颜色是 %3 ，标记大小是 %4 %5 第 %6 列作为x轴，第 %7 列作为y轴 %8 并拟合图像，直线颜色 %9 ，线形 %10 ，粗细 %11",
   "args0": [
     {
       "type": "field_variable",
       "name": "data",
       "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "marker",
+      "options": [
+        [
+          "圆点",
+          "."
+        ],
+        [
+          "圆圈",
+          "o"
+        ],
+        [
+          "x",
+          "x"
+        ],
+        [
+          "星号",
+          "*"
+        ],
+        [
+          "十字",
+          "+"
+        ]
+      ]
     },
     {
       "type": "field_colour",
@@ -515,18 +567,41 @@ var array =[{
       "value": 2,
       "min": 1
     },
+
     {
       "type": "input_dummy"
     },
     {
       "type": "field_colour",
-      "name": "NAME",
+      "name": "line_color",
       "colour": "#ff0000"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "line_style",
+      "options": [
+        [
+          "实线",
+          "solid"
+        ],
+        [
+          "短划线",
+          "dashed"
+        ],
+        [
+          "点划线",
+          "dashdot"
+        ],
+        [
+          "虚线",
+          "dotted"
+        ]
+      ]
     },
     {
       "type": "field_number",
       "name": "thin",
-      "value": 1,
+      "value": 5,
       "min": 1
     }
   ],
@@ -535,7 +610,7 @@ var array =[{
   "colour": 135,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_describe",
   "message0": "获取 %1 描述性统计信息",
   "args0": [

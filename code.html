@@ -2,43 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO优化 -->
-    <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
-    <!-- 网站说明 -->
-    <meta name="description" content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
-    <!-- 关键字 -->
-    <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
-    <!-- 引入favicon图标  -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <!-- 引入初始化样式文件 -->
-    <link rel="stylesheet" href="css/base.css">
-    <!-- 引入公共样式文件 -->
-    <link rel="stylesheet" href="css/common.css">
-    <!-- 引入index.css -->
-    <link rel="stylesheet" href="css/code.css">
-    <!-- 引入blockly js文件 -->
-    <script src="js/blockly_compressed.js"></script>
-    <script src="js/blocks_compressed.js"></script>
-    <script src="js/msg/zh-hans.js"></script>
-    <script src="js/python_compressed.js"></script>
-    <script src="js/blocks/pandas.js"></script>
-    <script src="js/blocks/pandas-gen.js"></script>
-    <script src="js/blocks/dict.js"></script>
-    <script src="js/blocks/dict-gen.js"></script>
-    <script src="js/blocks/output.js"></script>
-    <script src="js/blocks/output-gen.js"></script>
-    <script src="js/blocks/math.js"></script>
-    <script src="js/blocks/math-gen.js"></script>
-    <script src="js/blocks/formula.js"></script>
-    <script src="js/blocks/formula-gen.js"></script>
-	<script src="js/mutators.js"></script>
-	<script src="js/blocks/tuple.js"></script>
-	<script src="js/blocks/tuple-gen.js"></script>
-	<script src="js/blocks/statistics.js"></script>
-	<script src="js/blocks/statistics-gen.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO优化 -->
+  <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
+  <!-- 网站说明 -->
+  <meta name="description"
+    content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
+  <!-- 关键字 -->
+  <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
+  <!-- 引入favicon图标  -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <!-- 引入初始化样式文件 -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 引入公共样式文件 -->
+  <link rel="stylesheet" href="css/common.css">
+  <!-- 引入index.css -->
+  <link rel="stylesheet" href="css/code.css">
+  <!-- 引入blockly js文件 -->
+  <script src="js/blockly_compressed.js"></script>
+  <script src="js/blocks_compressed.js"></script>
+  <script src="js/msg/zh-hans.js"></script>
+  <script src="js/python_compressed.js"></script>
+  <script src="js/blocks/pandas.js"></script>
+  <script src="js/blocks/pandas-gen.js"></script>
+  <script src="js/blocks/dict.js"></script>
+  <script src="js/blocks/dict-gen.js"></script>
+  <script src="js/blocks/output.js"></script>
+  <script src="js/blocks/output-gen.js"></script>
+  <script src="js/blocks/math.js"></script>
+  <script src="js/blocks/math-gen.js"></script>
+  <script src="js/blocks/formula.js"></script>
+  <script src="js/blocks/formula-gen.js"></script>
+  <script src="js/mutators.js"></script>
+  <script src="js/blocks/tuple.js"></script>
+  <script src="js/blocks/tuple-gen.js"></script>
+  <script src="js/blocks/statistics.js"></script>
+  <script src="js/blocks/statistics-gen.js"></script>
 </head>
 
 
@@ -397,23 +398,11 @@
     </block>
   </category>
   <category name="字典和元组" colour="#5b67a5">
-    <block type="dict_create">
-      <value name="d1">
-        <block type="dict_component">
-          <value name="k">
-            <block type="text">
-              <field name="TEXT">第1个键</field>
-            </block>
-          </value>
-        </block>
-      </value>
-      <value name="d2">
-        <block type="dict_component">
-          <value name="k">
-            <block type="text">
-              <field name="TEXT">第2个键</field>
-            </block>
-          </value>
+    <block type="dict_create"></block>
+    <block type="dict_component">
+      <value name="k">
+        <block type="text">
+          <field name="TEXT">键</field>
         </block>
       </value>
     </block>
@@ -422,6 +411,34 @@
         <block type="text">
           <field name="TEXT">值</field>
         </block>
+      </value>
+    </block>
+    <block type="dict_get_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="NAME">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="dict_set_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="item">
+        <block type="dict_component">
+          <value name="k">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+        </block>
+      </value>
+    </block>
+    <block type="dict_del_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="key">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
       </value>
     </block>
     <block type="tuple">
@@ -453,26 +470,7 @@
     </block>
     <block type="pd_create_dataframe">
       <value name="data">
-        <block type="dict_create">
-          <value name="d1">
-            <block type="dict_component">
-              <value name="k">
-                <block type="text">
-                  <field name="TEXT">A</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <value name="d2">
-            <block type="dict_component">
-              <value name="k">
-                <block type="text">
-                  <field name="TEXT">B</field>
-                </block>
-              </value>
-            </block>
-          </value>
-        </block>
+        <block type="dict_create"></block>
       </value>
     </block>
     <block type="pd_set_columns">
@@ -585,20 +583,39 @@
         </block>
       </value>
     </block>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot_scatter">
+          <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="NAME">.</field>
+          <field name="color">#ff0000</field>
+          <field name="s">20</field>
+          <field name="xlabel">1</field>
+          <field name="ylabel">2</field>
+        </block>
+      </value>
+    </block>
     <block type="pd_plot_scatter_line">
       <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
       <field name="color">#ff0000</field>
       <field name="s">1</field>
       <field name="xlabel">1</field>
       <field name="ylabel">2</field>
-      <field name="NAME">#ff0000</field>
+      <field name="line_color">#ff0000</field>
+      <field name="line_style">solid</field>
       <field name="thin">1</field>
     </block>
-    <block type="pd_plot_bar">
-      <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
-      <field name="barh">bar</field>
-      <field name="stacked">T</field>
-      <field name="alpha">1</field>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot_bar">
+          <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="barh">bar</field>
+          <field name="stacked">T</field>
+          <field name="alpha">1</field>
+        </block>
+      </value>
     </block>
     <block type="pd_save_fig">
       <field name="filename">example</field>
@@ -644,80 +661,82 @@
   <category name="函数" colour="#995ba5" custom="PROCEDURE"></category>
 </xml>
 
+
+
 <body>
-    <!-- 导航模块 start -->
-    <nav class="nav">
-        <div class="banner">
-            <div class="img">
+  <!-- 导航模块 start -->
+  <nav class="nav">
+    <div class="banner">
+      <div class="img">
 
-            </div>
-            <div class="title">
-                从 Blockly 到 Python 数据分析与可视化
-            </div>
+      </div>
+      <div class="title">
+        从 Blockly 到 Python 数据分析与可视化
+      </div>
 
-            <div class="navitems">
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            <div class="box">
-                                <div class="front">主页</div>
-                                <div class="bottom">进入</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="example.html">
-                            <div class="box">
-                                <div class="front">教程</div>
-                                <div class="bottom">进入</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="code.html">
-                            <div class="box">
-                                <div class="front">编辑区</div>
-                                <div class="bottom">进入</div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-
-        </div>
-    </nav>
-    <!-- 导航模块 end -->
+      <div class="navitems">
+        <ul>
+          <li>
+            <a href="index.html">
+              <div class="box">
+                <div class="front">主页</div>
+                <div class="bottom">进入</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="example.html">
+              <div class="box">
+                <div class="front">教程</div>
+                <div class="bottom">进入</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="code.html">
+              <div class="box">
+                <div class="front">编辑区</div>
+                <div class="bottom">进入</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
 
-    <!-- main主体模块 start -->
-    <div class="main">
-        <div id='blocklyDiv' class="blocklyDiv">
-
-        </div>
-        <textarea id="textarea" rows="41" cols="60"></textarea>
     </div>
-    <!-- main主体模块 end -->
+  </nav>
+  <!-- 导航模块 end -->
 
-    <!-- footer模块 start -->
-    <footer class="footer">
-        <div class="w">
 
-        </div>
-    </footer>
-    <!-- footer模块 end -->
+  <!-- main主体模块 start -->
+  <div class="main">
+    <div id='blocklyDiv' class="blocklyDiv">
+
+    </div>
+    <textarea id="textarea" rows="41" cols="60"></textarea>
+  </div>
+  <!-- main主体模块 end -->
+
+  <!-- footer模块 start -->
+  <footer class="footer">
+    <div class="w">
+
+    </div>
+  </footer>
+  <!-- footer模块 end -->
 </body>
 
 <script>
-    var workspace = Blockly.inject('blocklyDiv', {
-        toolbox: document.getElementById('toolbox')
-    });
+  var workspace = Blockly.inject('blocklyDiv', {
+    toolbox: document.getElementById('toolbox')
+  });
 
-    function myUpdateFunction(event) {
-        var code = Blockly.Python.workspaceToCode(workspace);
-        document.getElementById('textarea').value = code;
-    }
-    workspace.addChangeListener(myUpdateFunction);
+  function myUpdateFunction(event) {
+    var code = Blockly.Python.workspaceToCode(workspace);
+    document.getElementById('textarea').value = code;
+  }
+  workspace.addChangeListener(myUpdateFunction);
 </script>
 
 </html>

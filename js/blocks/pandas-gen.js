@@ -263,6 +263,12 @@ Blockly.Python['pd_fillna'] = function (block) {
   var variable_item = Blockly.Python.nameDB_.getName(block.getFieldValue('item'), Blockly.Variables.NAME_TYPE);
   var dropdown_strategy = block.getFieldValue('strategy');
   // TODO: Assemble Python into code variable.
-  var code = `${variable_item} = ${variable_item}.fillna(method='${dropdown_strategy}')\n`;
+
+  var code;
+  code = `${variable_item} = ${variable_item}.fillna(method='${dropdown_strategy}')\n`;
+  if (dropdown_strategy == 'valuefill') {
+    var value_data = Blockly.Python.valueToCode(block, 'use_value_fill', Blockly.Python.ORDER_NONE);
+    code = `${variable_item} = ${variable_item}.fillna(${value_data})\n`;
+  }
   return code;
 };

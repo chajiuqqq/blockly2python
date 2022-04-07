@@ -640,7 +640,11 @@ var array = [{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-},
+}]
+
+Blockly.defineBlocksWithJsonArray(array)
+
+var pd_fillna =
 {
   "type": "pd_fillna",
   "message0": "填充 %1 的缺失值，策略是 %2",
@@ -674,6 +678,23 @@ var array = [{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-}]
+}
 
-Blockly.defineBlocksWithJsonArray(array)
+
+Blockly.Blocks['pd_fillna'] = {
+  init: function () {
+    this.jsonInit(pd_fillna);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var dropdown = this.getField('strategy')
+    dropdown.setValidator(this.validate)
+    this.setInputsInline(true);
+
+  },
+  validate: function (dropdown_value) {
+    if (dropdown_value == 'valuefill') {
+      this.getSourceBlock().appendValueInput('use_value_fill').setCheck(['Number']).appendField(':')
+    } else if (this.getSourceBlock().getInput('use_value_fill')) {
+      this.getSourceBlock().removeInput('use_value_fill')
+    }
+  }
+};

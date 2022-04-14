@@ -12,13 +12,37 @@ body {
     float: left;
     width: 70%;
     height: 45rem;
-    margin-top: 9%;
+    margin-top: 1%;
 }
 
 #textarea {
     float: left;
-    margin-top: 9%;
+    margin-top: 1%;
     background-color: #FBFAF5;
     border: 0;
-    box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3)
+    box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3);
+    width: 25%;
+    height: 45rem;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 6%;
+    margin-right: 4%;
+}
+
+.btn button {
+    background-color: #337AB7;
+    color: white;
+    width: 6rem;
+    height: 3rem;
+    margin: 0 1%;
+    border-radius: 5%;
+    box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .1)
+}
+
+.btn button:hover {
+    background-color: #286090;
 }

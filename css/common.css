@@ -1,5 +1,15 @@
 /* 版心 */
 
+.nav-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+}
+
 .banner {
     width: 80%;
     margin: 0 auto;
@@ -19,12 +29,16 @@
     overflow: hidden;
 }
 
-.navitems ul li {
-    float: left;
-    width: 10rem;
+.navitems {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navitems a {
+    width: 9rem;
     height: 5rem;
     perspective: 500px;
-    margin: 0 1%;
+    margin: 0 3%;
 }
 
 .box {
@@ -68,7 +82,7 @@
 }
 
 .img {
-    float: left;
+    /* float: left; */
     width: 17rem;
     height: 100%;
     background: url('../images/logo.png') no-repeat;
@@ -78,15 +92,13 @@
 }
 
 .title {
-    float: left;
+    /* float: left; */
     width: 28rem;
     color: #fff;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 5rem;
     vertical-align: middle;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
 h1,

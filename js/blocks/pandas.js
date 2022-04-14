@@ -1,5 +1,5 @@
 
-var array =[{
+var array = [{
   "type": "pd_create_series",
   "message0": "创建序列 %1",
   "args0": [
@@ -127,10 +127,9 @@ var array =[{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-},
-{
+}, {
   "type": "pd_plot",
-  "message0": "创建 %1 的折线图， 颜色是 %2 ，线型是 %3 %4 x轴是 %5 ，y轴是 %6 %7 标记是 %8 ，标记颜色是 %9 ，标记大小是 %10",
+  "message0": "创建 %1 的折线图， 颜色是 %2 ，线型是 %3 %4 第 %5 列作为x轴，第 %6 列作为y轴 %7 标记是 %8 ，标记颜色是 %9 ，标记大小是 %10",
   "args0": [
     {
       "type": "field_variable",
@@ -168,14 +167,16 @@ var array =[{
       "type": "input_dummy"
     },
     {
-      "type": "field_input",
+      "type": "field_number",
       "name": "x",
-      "text": ""
+      "value": 1,
+      "min": 1
     },
     {
-      "type": "field_input",
+      "type": "field_number",
       "name": "y",
-      "text": ""
+      "value": 2,
+      "min": 1
     },
     {
       "type": "input_dummy"
@@ -227,7 +228,7 @@ var array =[{
   "colour": 135,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_plot_bar",
   "message0": "创建 %1 %2 的柱形图， 类型 %3 ，透明度 %4",
   "args0": [
@@ -315,7 +316,7 @@ var array =[{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_save_fig",
   "message0": "保存图表为 %1 %2",
   "args0": [
@@ -335,7 +336,7 @@ var array =[{
   "colour": 135,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_get_column_by_loc",
   "message0": "获取 %1 的第 %2 列数据",
   "args0": [
@@ -376,7 +377,7 @@ var array =[{
   "colour": 285,
   "tooltip": "",
   "helpUrl": ""
-},{
+}, {
   "type": "pd_get_row_by_loc",
   "message0": "获取 %1 的第 %2 行数据",
   "args0": [
@@ -425,6 +426,275 @@ var array =[{
   "colour": 210,
   "tooltip": "",
   "helpUrl": ""
+}, {
+  "type": "pd_plot_scatter",
+  "message0": "创建 %1 的散点图， 标记是 %2 ，标记颜色是 %3 ，标记大小是 %4 %5 第 %6 列作为x轴，第 %7 列作为y轴",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "data",
+      "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "NAME",
+      "options": [
+        [
+          "圆点",
+          "."
+        ],
+        [
+          "圆圈",
+          "o"
+        ],
+        [
+          "x",
+          "x"
+        ],
+        [
+          "星号",
+          "*"
+        ],
+        [
+          "十字",
+          "+"
+        ]
+      ]
+    },
+    {
+      "type": "field_colour",
+      "name": "color",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_number",
+      "name": "s",
+      "value": 20,
+      "min": 1
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "xlabel",
+      "value": 1,
+      "min": 1
+    },
+    {
+      "type": "field_number",
+      "name": "ylabel",
+      "value": 2,
+      "min": 1
+    }
+  ],
+  "output": null,
+  "colour": 135,
+  "tooltip": "",
+  "helpUrl": ""
+}, {
+  "type": "pd_read_excel",
+  "message0": "从 %1 中读取数据表格",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    }
+  ],
+  "output": null,
+  "colour": 120,
+  "tooltip": "",
+  "helpUrl": ""
+}, {
+  "type": "pd_plot_scatter_line",
+  "message0": "创建 %1 的散点图， 标记是 %2 ，标记颜色是 %3 ，标记大小是 %4 %5 第 %6 列作为x轴，第 %7 列作为y轴 %8 并拟合图像，直线颜色 %9 ，线形 %10 ，粗细 %11",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "data",
+      "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "marker",
+      "options": [
+        [
+          "圆点",
+          "."
+        ],
+        [
+          "圆圈",
+          "o"
+        ],
+        [
+          "x",
+          "x"
+        ],
+        [
+          "星号",
+          "*"
+        ],
+        [
+          "十字",
+          "+"
+        ]
+      ]
+    },
+    {
+      "type": "field_colour",
+      "name": "color",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_number",
+      "name": "s",
+      "value": 20,
+      "min": 1
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_number",
+      "name": "xlabel",
+      "value": 1,
+      "min": 1
+    },
+    {
+      "type": "field_number",
+      "name": "ylabel",
+      "value": 2,
+      "min": 1
+    },
+
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_colour",
+      "name": "line_color",
+      "colour": "#ff0000"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "line_style",
+      "options": [
+        [
+          "实线",
+          "solid"
+        ],
+        [
+          "短划线",
+          "dashed"
+        ],
+        [
+          "点划线",
+          "dashdot"
+        ],
+        [
+          "虚线",
+          "dotted"
+        ]
+      ]
+    },
+    {
+      "type": "field_number",
+      "name": "thin",
+      "value": 5,
+      "min": 1
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 135,
+  "tooltip": "",
+  "helpUrl": ""
+}, {
+  "type": "pd_describe",
+  "message0": "获取 %1 描述性统计信息",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    }
+  ],
+  "output": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "pd_dropna",
+  "message0": "丢弃 %1 含有缺失值的行",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 
 Blockly.defineBlocksWithJsonArray(array)
+
+var pd_fillna =
+{
+  "type": "pd_fillna",
+  "message0": "填充 %1 的缺失值，策略是 %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "strategy",
+      "options": [
+        [
+          "前值填充",
+          "ffill"
+        ],
+        [
+          "后值填充",
+          "bfill"
+        ],
+        [
+          "指定值",
+          "valuefill"
+        ]
+      ]
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+}
+
+
+Blockly.Blocks['pd_fillna'] = {
+  init: function () {
+    this.jsonInit(pd_fillna);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var dropdown = this.getField('strategy')
+    dropdown.setValidator(this.validate)
+    this.setInputsInline(true);
+
+  },
+  validate: function (dropdown_value) {
+    if (dropdown_value == 'valuefill') {
+      this.getSourceBlock().appendValueInput('use_value_fill').setCheck(['Number']).appendField(':')
+    } else if (this.getSourceBlock().getInput('use_value_fill')) {
+      this.getSourceBlock().removeInput('use_value_fill')
+    }
+  }
+};

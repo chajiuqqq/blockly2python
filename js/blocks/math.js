@@ -45,6 +45,27 @@ var array = [{
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
+},{
+  "type": "math_mean",
+  "message0": "计算均值 %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME"
+    }
+  ],
+  "output": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "math_import",
+  "message0": "导入Math库",
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
 }]
 
 

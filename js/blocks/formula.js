@@ -5,16 +5,69 @@ var array = [{
     {
       "type": "input_value",
       "name": "T",
-      "check": "Number"
+      "check": [
+        "Number",
+        "Series",
+        "Array"
+      ]
     },
     {
       "type": "input_value",
       "name": "L",
-      "check": "Number"
+      "check": [
+        "Number",
+        "Series",
+        "Array"
+      ]
     }
   ],
   "inputsInline": true,
-  "output": "Number",
+  "output": [
+    "Number",
+    "Series",
+    "Array"
+  ],
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "formula_rou",
+  "message0": "测量金属丝电阻率，金属丝半径是 %1 ，金属丝长度是 %2 ，电阻是 %3",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "d",
+      "check": [
+        "Number",
+        "Series",
+        "Array"
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "l",
+      "check": [
+        "Number",
+        "Series",
+        "Array"
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "R",
+      "check": [
+        "Number",
+        "Series",
+        "Array"
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "output": [
+    "Number",
+    "Series",
+    "Array"
+  ],
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""

@@ -10,10 +10,9 @@ body {
 
 .blocklyDiv {
     float: left;
-    width: 70%;
-    height: 45rem;
-    margin-top: 7%;
-    box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3)
+    width: 50%;
+    height: 39rem;
+    margin-top: 12%;
 }
 
 #textarea {

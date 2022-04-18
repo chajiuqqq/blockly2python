@@ -2,9 +2,9 @@ Blockly.Python["import_pandas"] = function (block) {
   // TODO: Assemble Python into code variable.
   var code = "import pandas as pd\n";
   code += `import matplotlib.pyplot as plt\n`
-  // code += `plt.rcParams["font.sans-serif"]=["SimHei"]\n`
+  code += `plt.rcParams["font.sans-serif"]=["SimHei"]\n`
   code += `plt.rcParams["axes.unicode_minus"]=False\n\n`
-  code += `plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']\n\n`
+  // code += `plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']\n\n`
 
   return code;
 };

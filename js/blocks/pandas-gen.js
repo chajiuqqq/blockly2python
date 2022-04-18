@@ -144,8 +144,8 @@ Blockly.Python['pd_plot_scatter_line'] = function (block) {
   var colour_color = block.getFieldValue('color');
   var number_s = block.getFieldValue('s');
   var dropdown_name = block.getFieldValue('marker');
-  var number_xlabel = block.getFieldValue('xlabel');
-  var number_ylabel = block.getFieldValue('ylabel');
+  var number_xlabel = block.getFieldValue('xlabel')-1;
+  var number_ylabel = block.getFieldValue('ylabel')-1;
   var colour_line_color = block.getFieldValue('line_color');
   var dropdown_line_style = block.getFieldValue('line_style');
   var number_thin = block.getFieldValue('thin');
@@ -153,7 +153,7 @@ Blockly.Python['pd_plot_scatter_line'] = function (block) {
 
   // TODO: Assemble Python into code variable.
   var code = `import statistics\n`
-  code += `ax1 = ${variable_data}.plot.scatter(x=${number_xlabel},y=${number_ylabel},s=${number_s},c='${colour_color},marker='${dropdown_name}')\n`;
+  code += `ax1 = ${variable_data}.plot.scatter(x=${number_xlabel},y=${number_ylabel},s=${number_s},c='${colour_color}',marker='${dropdown_name}')\n`;
   code += `slope,intercept = statistics.linear_regression(${variable_data}.iloc[:,${number_xlabel}], ${variable_data}.iloc[:,${number_ylabel}])
 x = ${variable_data}.iloc[:,${number_xlabel}]
 new_y = slope * x + intercept

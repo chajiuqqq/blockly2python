@@ -11,7 +11,7 @@ body {
 .blocklyDiv {
     float: left;
     width: 70%;
-    height: 45rem;
+    height: 77vh;
     margin-top: 1%;
 }
 
@@ -22,7 +22,7 @@ body {
     border: 0;
     box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3);
     width: 25%;
-    height: 45rem;
+    height: 77vh;
 }
 
 .btn {
@@ -37,7 +37,7 @@ body {
     background-color: #337AB7;
     color: white;
     width: 6rem;
-    height: 3rem;
+    height: 5vh;
     margin: 0 1%;
     border-radius: 5%;
     box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .1)

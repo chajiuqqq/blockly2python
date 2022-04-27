@@ -1,10 +1,21 @@
-Blockly.Python["import_pandas"] = function (block) {
+Blockly.Python["import_libs"] = function (block) {
   // TODO: Assemble Python into code variable.
+  
+  var dropdown_sys = block.getFieldValue('sys');
+  //win,mac
   var code = "import pandas as pd\n";
   code += `import matplotlib.pyplot as plt\n`
-  code += `plt.rcParams["font.sans-serif"]=["SimHei"]\n`
-  code += `plt.rcParams["axes.unicode_minus"]=False\n\n`
-  // code += `plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']\n\n`
+  code += `import statistics\n`
+  code += `import math\n`
+  code += `plt.rcParams["axes.unicode_minus"]=False\n`
+
+
+  if(dropdown_sys == 'mac'){
+    code += `plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']\n\n`
+  }
+  if(dropdown_sys == 'win'){
+    code += `plt.rcParams["font.sans-serif"]=["SimHei"]\n\n`
+  }
 
   return code;
 };

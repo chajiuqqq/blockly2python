@@ -10,7 +10,7 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -25,7 +25,7 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -46,7 +46,7 @@ var array = [{
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -67,64 +67,31 @@ var array = [{
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
-},
-{
-  "type": "list",
-  "message0": "%1 %2 %3",
+},{
+  "type": "import_libs",
+  "message0": "导入依赖库，系统： %1",
   "args0": [
     {
-      "type": "input_value",
-      "name": "v1"
-    },
-    {
-      "type": "input_value",
-      "name": "v2"
-    },
-    {
-      "type": "input_value",
-      "name": "v3"
+      "type": "field_dropdown",
+      "name": "sys",
+      "options": [
+        [
+          "Windows",
+          "win"
+        ],
+        [
+          "苹果系统",
+          "mac"
+        ]
+      ]
     }
   ],
-  "inputsInline": true,
-  "output": "Array",
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "list_2",
-  "message0": "%1 %2 %3",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "r1",
-      "check": "Array"
-    },
-    {
-      "type": "input_value",
-      "name": "r2",
-      "check": "Array"
-    },
-    {
-      "type": "input_value",
-      "name": "r3",
-      "check": "Array"
-    }
-  ],
-  "output": null,
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "import_pandas",
-  "message0": "导入Pandas库",
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -225,7 +192,7 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 135,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -274,7 +241,7 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 135,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -294,7 +261,7 @@ var array = [{
     }
   ],
   "output": "dict",
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -313,7 +280,7 @@ var array = [{
   ],
   "inputsInline": true,
   "output": "dict_component",
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -333,7 +300,7 @@ var array = [{
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 135,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -423,7 +390,7 @@ var array = [{
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 210,
+  "colour": 285,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -489,7 +456,7 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 135,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -607,7 +574,7 @@ var array = [{
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 135,
+  "colour": 230,
   "tooltip": "",
   "helpUrl": ""
 }, {
@@ -621,7 +588,7 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 285,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -637,7 +604,7 @@ var array = [{
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 285,
   "tooltip": "",
   "helpUrl": ""
 }]
@@ -675,7 +642,7 @@ var pd_fillna =
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 285,
   "tooltip": "",
   "helpUrl": ""
 }
@@ -697,4 +664,141 @@ Blockly.Blocks['pd_fillna'] = {
       this.getSourceBlock().removeInput('use_value_fill')
     }
   }
+};
+
+
+
+var list_json=
+{
+  "type": "fast_list",
+  "message0": "",
+  "inputsInline": true,
+  "output": "Array",
+  "colour": 255,
+  "tooltip": "",
+  "helpUrl": ""
+}
+
+
+
+Blockly.Blocks['fast_list'] = {
+  init: function () {
+    this.jsonInit(list_json);
+    this.itemCount_=3;
+    this.setMutator(new Blockly.Mutator(['lists_create_with_item']));
+    this.updateShape_();
+  },
+  // These are the old XML serialization hooks for the lists_create_with block.
+	mutationToDom: function () {
+		// console.log('mutationToDom...')
+		// You *must* create a <mutation></mutation> element.
+		// This element can have children.
+		var container = Blockly.utils.xml.createElement('mutation');
+		container.setAttribute('items', this.itemCount_);
+		return container;
+	},
+
+	domToMutation: function (xmlElement) {
+		// console.log('domToMutation...')
+		this.itemCount_ = parseInt(xmlElement.getAttribute('items'), 10);
+		// This is a helper function which adds or removes inputs from the block.
+		this.updateShape_();
+	},
+	// These are the decompose and compose functions for the lists_create_with block.
+	decompose: function (workspace) {
+
+		// console.log('decompose...')
+		// This is a special sub-block that only gets created in the mutator UI.
+		// It acts as our "top block"
+		var topBlock = workspace.newBlock('dict_create_with_container');
+		topBlock.initSvg();
+
+		// Then we add one sub-block for each item in the list.
+		var connection = topBlock.getInput('STACK').connection;
+		for (var i = 0; i < this.itemCount_; i++) {
+			var itemBlock = workspace.newBlock('lists_create_with_item');
+			itemBlock.initSvg();
+			connection.connect(itemBlock.previousConnection);
+			connection = itemBlock.nextConnection;
+		}
+
+		// And finally we have to return the top-block.
+		return topBlock;
+	},
+
+	// The container block is the top-block returned by decompose.
+	compose: function (topBlock) {
+		// console.log('compose...')
+		// First we get the first sub-block (which represents an input on our main block).
+		var itemBlock = topBlock.getInputTargetBlock('STACK');
+
+		// Then we collect up all of the connections of on our main block that are
+		// referenced by our sub-blocks.
+		// This relates to the saveConnections hook (explained below).
+		var connections = [];
+		while (itemBlock && !itemBlock.isInsertionMarker()) { // Ignore insertion markers!
+			connections.push(itemBlock.valueConnection_);
+			itemBlock = itemBlock.nextConnection &&
+				itemBlock.nextConnection.targetBlock();
+		}
+
+		// Then we disconnect any children where the sub-block associated with that
+		// child has been deleted/removed from the stack.
+		for (var i = 0; i < this.itemCount_; i++) {
+			var connection = this.getInput('ADD' + i).connection.targetConnection;
+			if (connection && connections.indexOf(connection) == -1) {
+				connection.disconnect();
+			}
+		}
+
+		// Then we update the shape of our block (removing or adding iputs as necessary).
+		// `this` refers to the main block.
+		this.itemCount_ = connections.length;
+		this.updateShape_();
+
+		// And finally we reconnect any child blocks.
+		for (var i = 0; i < this.itemCount_; i++) {
+			Blockly.Mutator.reconnect(connections[i], this, 'ADD' + i);
+		}
+	},
+	saveConnections: function (containerBlock) {
+		var itemBlock = containerBlock.getInputTargetBlock('STACK');
+		var i = 0;
+		while (itemBlock) {
+			var input = this.getInput('ADD' + i);
+			itemBlock.valueConnection_ = input && input.connection.targetConnection;
+			i++;
+			itemBlock = itemBlock.nextConnection &&
+				itemBlock.nextConnection.targetBlock();
+		}
+	},
+	/**
+	 * Modify this block to have the correct number of inputs.
+	 * @private
+	 * @this Blockly.Block
+	 */
+	updateShape_: function () {
+		if (this.itemCount_ && this.getInput('EMPTY')) {
+			this.removeInput('EMPTY');
+		} else if (!this.itemCount_ && !this.getInput('EMPTY')) {
+			this.appendDummyInput('EMPTY')
+				.appendField(Blockly.Msg.LISTS_CREATE_EMPTY_TITLE);
+		}
+		// Add new inputs.
+		for (var i = 0; i < this.itemCount_; i++) {
+			if (!this.getInput('ADD' + i)) {
+				var input = this.appendValueInput('ADD' + i);
+				if (i == 0) {
+					input.appendField('列表：');
+				}else{
+          input.appendField(', ');
+        }
+			}
+		}
+		// Remove deleted inputs.
+		while (this.getInput('ADD' + i)) {
+			this.removeInput('ADD' + i);
+			i++;
+		}
+	}
 };

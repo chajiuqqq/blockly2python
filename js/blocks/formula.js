@@ -27,7 +27,7 @@ var array = [{
     "Series",
     "Array"
   ],
-  "colour": 230,
+  "colour": 275,
   "tooltip": "",
   "helpUrl": ""
 },{
@@ -68,7 +68,7 @@ var array = [{
     "Series",
     "Array"
   ],
-  "colour": 230,
+  "colour": 275,
   "tooltip": "",
   "helpUrl": ""
 }]

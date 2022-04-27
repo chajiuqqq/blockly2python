@@ -42,7 +42,7 @@ var array = [{
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 150,
   "tooltip": "",
   "helpUrl": ""
 },{
@@ -55,15 +55,33 @@ var array = [{
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 150,
   "tooltip": "",
   "helpUrl": ""
 },{
-  "type": "math_import",
-  "message0": "导入Math库",
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 230,
+  "type": "py_statistics",
+  "message0": "进行线性拟合，x是 %1 ，y是 %2",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "x",
+      "check": [
+        "Array",
+        "Series"
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "y",
+      "check": [
+        "Array",
+        "Series"
+      ]
+    }
+  ],
+  "inputsInline": true,
+  "output": "tuple",
+  "colour": 150,
   "tooltip": "",
   "helpUrl": ""
 }]

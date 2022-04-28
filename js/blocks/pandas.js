@@ -49,27 +49,6 @@ var array = [{
   "colour": 120,
   "tooltip": "",
   "helpUrl": ""
-},
-{
-  "type": "pd_set_index",
-  "message0": "设置 %1 的索引为 %2",
-  "args0": [
-    {
-      "type": "field_variable",
-      "name": "NAME",
-      "variable": "item"
-    },
-    {
-      "type": "input_value",
-      "name": "NAME",
-      "check": "Array"
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 120,
-  "tooltip": "",
-  "helpUrl": ""
 },{
   "type": "import_libs",
   "message0": "导入依赖库，系统： %1",
@@ -516,8 +495,7 @@ var array = [{
     {
       "type": "field_number",
       "name": "s",
-      "value": 20,
-      "min": 1
+      "value": 20
     },
     {
       "type": "input_dummy"
@@ -568,8 +546,7 @@ var array = [{
     {
       "type": "field_number",
       "name": "thin",
-      "value": 5,
-      "min": 1
+      "value": 3
     }
   ],
   "previousStatement": null,
@@ -605,6 +582,20 @@ var array = [{
   "previousStatement": null,
   "nextStatement": null,
   "colour": 285,
+  "tooltip": "",
+  "helpUrl": ""
+},{
+  "type": "pd_copy",
+  "message0": "制作数据表格 %1 的一个副本",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    }
+  ],
+  "output": null,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 }]
@@ -659,7 +650,9 @@ Blockly.Blocks['pd_fillna'] = {
   },
   validate: function (dropdown_value) {
     if (dropdown_value == 'valuefill') {
-      this.getSourceBlock().appendValueInput('use_value_fill').setCheck(['Number']).appendField(':')
+      if(!this.getSourceBlock().getInput('use_value_fill')){
+        this.getSourceBlock().appendValueInput('use_value_fill').setCheck(['Number']).appendField(':')
+      }
     } else if (this.getSourceBlock().getInput('use_value_fill')) {
       this.getSourceBlock().removeInput('use_value_fill')
     }
@@ -801,4 +794,45 @@ Blockly.Blocks['fast_list'] = {
 			i++;
 		}
 	}
+};
+
+var set_index_json = {
+  "type": "pd_set_index",
+  "message0": "设置 %1 的索引，类型是 %2 %3",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "item",
+      "variable": "item"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "type",
+      "options": [
+        [
+          "表格中的列名",
+          "col"
+        ],
+        [
+          "新列表",
+          "new_list"
+        ]
+      ]
+    },
+    {
+      "type": "input_value",
+      "name": "data"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+}
+
+Blockly.Blocks['pd_set_index'] = {
+  init: function () {
+    this.jsonInit(set_index_json);
+  }
 };

@@ -54,68 +54,29 @@ Blockly.Python["pd_set_columns"] = function (block) {
     Blockly.Python.ORDER_NONE
   );
   // TODO: Assemble Python into code variable.
-  var code = `${variable_name}.columns=${value_name}`;
+  var code = `${variable_name}.columns=${value_name}\n`;
   return code;
 };
 
 Blockly.Python["pd_set_index"] = function (block) {
   var variable_name = Blockly.Python.nameDB_.getName(
-    block.getFieldValue("NAME"),
+    block.getFieldValue("item"),
     Blockly.Variables.NAME_TYPE
   );
-  var value_name = Blockly.Python.valueToCode(
-    block,
-    "NAME",
-    Blockly.Python.ORDER_NONE
-  );
+  var dropdown_type = block.getFieldValue('type');
+  var value_data = Blockly.Python.valueToCode(block, 'data', Blockly.Python.ORDER_ATOMIC);
+  var tmp=''
   // TODO: Assemble Python into code variable.
-  var code = `${variable_name}.set_index(${value_name})`;
+  if(dropdown_type == 'new_list'){
+    tmp=`pd.Index(${value_data})`;
+  }else{
+    tmp=value_data;
+  }
+
+  var code = `${variable_name}.set_index(${tmp},inplace=True)\n`;
   return code;
 };
 
-Blockly.Python["list"] = function (block) {
-  var value_v1 = Blockly.Python.valueToCode(
-    block,
-    "v1",
-    Blockly.Python.ORDER_NONE
-  );
-  var value_v2 = Blockly.Python.valueToCode(
-    block,
-    "v2",
-    Blockly.Python.ORDER_NONE
-  );
-  var value_v3 = Blockly.Python.valueToCode(
-    block,
-    "v3",
-    Blockly.Python.ORDER_NONE
-  );
-  // TODO: Assemble Python into code variable.
-  var code = `[${value_v1},${value_v2},${value_v3}]`;
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Python.ORDER_NONE];
-};
-
-Blockly.Python["list_2"] = function (block) {
-  var value_r1 = Blockly.Python.valueToCode(
-    block,
-    "r1",
-    Blockly.Python.ORDER_NONE
-  );
-  var value_r2 = Blockly.Python.valueToCode(
-    block,
-    "r2",
-    Blockly.Python.ORDER_NONE
-  );
-  var value_r3 = Blockly.Python.valueToCode(
-    block,
-    "r3",
-    Blockly.Python.ORDER_NONE
-  );
-  // TODO: Assemble Python into code variable.
-  var code = `[${value_r1},${value_r2},${value_r3}]`;
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Python.ORDER_NONE];
-};
 
 Blockly.Python["pd_plot"] = function (block) {
   var variable_data = Blockly.Python.nameDB_.getName(block.getFieldValue('data'), Blockly.Variables.NAME_TYPE);
@@ -145,7 +106,7 @@ Blockly.Python['pd_plot_scatter'] = function (block) {
   var number_xlabel = block.getFieldValue('xlabel') - 1;
   var number_ylabel = block.getFieldValue('ylabel') - 1;
   // TODO: Assemble Python into code variable.
-  var code = `${variable_data}.plot.scatter(x=${number_xlabel},y=${number_ylabel},s=${number_s},c='${colour_color}',marker='${dropdown_name}'\n`;
+  var code = `${variable_data}.plot.scatter(x=${number_xlabel},y=${number_ylabel},s=${number_s},c='${colour_color}',marker='${dropdown_name}')\n`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
 };
@@ -282,4 +243,24 @@ Blockly.Python['pd_fillna'] = function (block) {
     code = `${variable_item} = ${variable_item}.fillna(${value_data})\n`;
   }
   return code;
+};
+
+Blockly.Python['fast_list'] = function(block) {  
+  
+  var code = new Array(block.itemCount_);
+  for (var n = 0; n < block.itemCount_; n++) {
+    code[n] = Blockly.Python.valueToCode(block, 'ADD' + n,
+      Blockly.Python.ORDER_NONE) || 'None';
+  }
+  code = '[' + code.join(', ') + ']';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+
+};
+
+Blockly.Python['pd_copy'] = function(block) {
+  var variable_item = Blockly.Python.nameDB_.getName(block.getFieldValue('item'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble Python into code variable.
+  var code = `${variable_item}.copy()`;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
 };

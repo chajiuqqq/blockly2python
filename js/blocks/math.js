@@ -47,14 +47,56 @@ var array = [{
   "helpUrl": ""
 },{
   "type": "math_mean",
-  "message0": "计算均值 %1",
+  "message0": "计算 %1 的 %2",
   "args0": [
     {
       "type": "input_value",
-      "name": "NAME"
+      "name": "item",
+      "check": [
+        "DataFrame",
+        "Series"
+      ]
+    },
+    {
+      "type": "field_dropdown",
+      "name": "option",
+      "options": [
+        [
+          "均值",
+          "mean"
+        ],
+        [
+          "最大值",
+          "max"
+        ],
+        [
+          "最小值",
+          "min"
+        ],
+        [
+          "个数",
+          "count"
+        ],
+        [
+          "累加和",
+          "sum"
+        ],
+        [
+          "方差",
+          "var"
+        ],
+        [
+          "标准差",
+          "std"
+        ]
+      ]
     }
   ],
-  "output": null,
+  "inputsInline": true,
+  "output": [
+    "Number",
+    "Series"
+  ],
   "colour": 150,
   "tooltip": "",
   "helpUrl": ""

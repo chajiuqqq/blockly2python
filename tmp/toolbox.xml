@@ -419,6 +419,11 @@
     <block type="import_libs">
       <field name="sys">win</field>
     </block>
+    <block type="pd_create_dataframe">
+      <value name="data">
+        <block type="dict_create"></block>
+      </value>
+    </block>
     <block type="pd_read_excel">
       <value name="NAME">
         <block type="text">
@@ -426,16 +431,15 @@
         </block>
       </value>
     </block>
-    <block type="pd_create_dataframe">
-      <value name="data">
-        <block type="dict_create"></block>
-      </value>
+    <block type="pd_copy">
+      <field name="item" id="/t@IbvD6G**LKqXi8w}=">item</field>
     </block>
     <block type="pd_set_columns">
       <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
     </block>
     <block type="pd_set_index">
-      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <field name="item" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <field name="type">col</field>
     </block>
     <block type="pd_get_column_by_loc">
       <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>

@@ -11,6 +11,7 @@
     padding: 25px 0px 60px 20px;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-left: 5%;
 }
 
 .left>ul {
@@ -18,20 +19,14 @@
 }
 
 .left>ul>li {
-    margin-top: 1.5em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
+    margin-top: 3.5vh;
 }
 
-.left>ul>li>a {
-    font-weight: 600;
-}
 
 .left a:hover {
     color: #3DA19F;
     border-bottom: 1px solid #3DA19F;
-    /* font-weight: 600; */
+    font-weight: 600;
 }
 
 /* .left>ul li ul {
@@ -49,16 +44,18 @@
 
 .right {
     float: left;
-    width: 77%;
+    width: 78%;
     height: 85vh;
     overflow-y: auto;
     overflow-x: hidden;
     margin-top: 4vh;
+    padding-right: 5%;
+    padding-left: 1%;
 }
 
 .content {
     position: relative;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
     /* padding-left: 50px; */
 }

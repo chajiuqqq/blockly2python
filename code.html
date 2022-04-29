@@ -8,7 +8,8 @@
   <!-- SEO优化 -->
   <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
   <!-- 网站说明 -->
-  <meta name="description" content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
+  <meta name="description"
+    content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
   <!-- 关键字 -->
   <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
   <!-- 引入favicon图标  -->
@@ -37,6 +38,7 @@
   <script src="js/mutators.js"></script>
   <script src="js/blocks/tuple.js"></script>
   <script src="js/blocks/tuple-gen.js"></script>
+
 </head>
 
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -683,26 +685,21 @@
     <div id='blocklyDiv' class="blocklyDiv">
 
     </div>
-    <textarea id="textarea" spellcheck="false"></textarea>
-    <!-- <div class="jupyter">
-      <div class="maskimg"></div>
-      <div class="mask">
-       <img src="images/close.png" alt="">
-      </div>
-    </div> -->
+    <textarea id="code" name="code" spellcheck="false"></textarea>
+
     <div class="jupyter">
       <div class="close">
-       <div class="close-title">
-        <h1>打开Jupyter notebook 方式：</h1>
+        <div class="close-title">
+          <h1>打开Jupyter notebook 方式：</h1>
+        </div>
+        <img id="close" src="images/close.png" alt="">
       </div>
-      <img id="close" src="images/close.png" alt="">
-    </div>
       <div style="height: 3vh;border-top: 2px solid #e0e0e0"></div>
       <div class="close-img">
-        
+
       </div>
     </div>
-    
+
   </div>
   </nav>
   <!-- 导航模块 end -->
@@ -716,36 +713,64 @@
   </footer>
   <!-- footer模块 end -->
 </body>
-
+<link rel="stylesheet" href="codemirror-5.65.3/lib/codemirror.css" />
+<script type="text/javascript" src="codemirror-5.65.3/lib/codemirror.js"></script>
+<script type="text/javascript" src="codemirror-5.65.3/mode/python/python.js"></script>
 <script>
+  // textarea code
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true,
+    mode: "python"
+  });
+
+  // console.log(editor.getTextArea().value);
+
   var workspace = Blockly.inject('blocklyDiv', {
     toolbox: document.getElementById('toolbox')
   });
 
   function myUpdateFunction(event) {
     var code = Blockly.Python.workspaceToCode(workspace);
-    document.getElementById('textarea').value = code;
+    editor.getDoc().setValue(code);
   }
   workspace.addChangeListener(myUpdateFunction);
 
-  var copycode = document.querySelector('#copycode');
-  copycode.onclick = function () {
-    let textarea = document.getElementById('textarea');
-    console.log("click");
-    console.log(textarea.value);
-    textarea.select()
-    document.execCommand('copy');
-  }
+
   var open = document.querySelector('#open');
-  var jupyter=document.querySelector('.jupyter')
-  var close=document.querySelector('#close')
+  var jupyter = document.querySelector('.jupyter')
+  var close = document.querySelector('#close')
   open.onclick = function () {
-    jupyter.style.display="block"
+    jupyter.style.display = "block"
   }
   close.onclick = function () {
-    jupyter.style.display="none"
+    jupyter.style.display = "none"
   }
-  
+
+
+
+  var copycode = document.querySelector('#copycode');
+  copycode.onclick = function () {
+    var dummy = document.createElement("input");
+
+    // Add it to the document
+    document.body.appendChild(dummy);
+
+    // Set its ID
+    dummy.setAttribute("id", "dummy_id");
+
+    // Output the array into it
+    document.getElementById("dummy_id").value = editor.getValue();
+
+    // Select it
+    dummy.select();
+
+    // Copy its contents
+    document.execCommand("copy");
+
+    // Remove it as its not needed anymore
+    document.body.removeChild(dummy);
+  }
+
 </script>
 
 </html>

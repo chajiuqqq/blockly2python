@@ -15,14 +15,12 @@ body {
   margin-top: 1%;
 }
 
-#textarea {
+  .CodeMirror{
   float: left;
   margin-top: 1%;
-  background-color: #fbfaf5;
-  border: 0;
-  box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3);
   width: 25%;
-  height: 77vh;
+  height: 77vh !important;
+  box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3);
 }
 
 .btn {

@@ -1,48 +1,90 @@
 body {
-    background: url(../upload/bgc.png) no-repeat;
-    background-size: cover;
+  background: url(../upload/bgc.png) no-repeat;
+  background-size: cover;
 }
 
 .main {
-    overflow: hidden;
-    margin-left: 2%;
+  overflow: hidden;
+  margin-left: 2%;
 }
 
 .blocklyDiv {
-    float: left;
-    width: 70%;
-    height: 77vh;
-    margin-top: 1%;
+  float: left;
+  width: 70%;
+  height: 77vh;
+  margin-top: 1%;
 }
 
 #textarea {
-    float: left;
-    margin-top: 1%;
-    background-color: #FBFAF5;
-    border: 0;
-    box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3);
-    width: 25%;
-    height: 77vh;
+  float: left;
+  margin-top: 1%;
+  background-color: #fbfaf5;
+  border: 0;
+  box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3);
+  width: 25%;
+  height: 77vh;
 }
 
 .btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 6%;
-    margin-right: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 6%;
+  margin-right: 4%;
 }
 
 .btn button {
-    background-color: #337AB7;
-    color: white;
-    width: 6rem;
-    height: 5vh;
-    margin: 0 1%;
-    border-radius: 5%;
-    box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .1)
+  background-color: #337ab7;
+  color: white;
+  width: 6rem;
+  height: 5vh;
+  margin: 0 1%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.1);
 }
 
 .btn button:hover {
-    background-color: #286090;
+  background-color: #286090;
+}
+.jupyter {
+  
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 50vh;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  z-index: 99999;
+  border-radius: 8px;
+  display: none;
+}
+.jupyter .close {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.jupyter .close img {
+  width: 4vh;
+  height: 4vh;
+  cursor: pointer;
+  margin-right: 2%;
+}
+.jupyter .close-title {
+  color: #111827;
+  padding: 1.5vh 2vh;
+  pointer-events: all;
+  position: relative;
+  width: calc(100% - 4.5em);
+}
+.jupyter .close-img {
+  width: 100%;
+  height: 100%;
+  background: url(../upload/jupyter.jpg) no-repeat;
+  background-size: 100% auto;
 }

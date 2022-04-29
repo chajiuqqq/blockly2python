@@ -684,6 +684,25 @@
 
     </div>
     <textarea id="textarea" spellcheck="false"></textarea>
+    <!-- <div class="jupyter">
+      <div class="maskimg"></div>
+      <div class="mask">
+       <img src="images/close.png" alt="">
+      </div>
+    </div> -->
+    <div class="jupyter">
+      <div class="close">
+       <div class="close-title">
+        <h1>打开Jupyter notebook 方式：</h1>
+      </div>
+      <img id="close" src="images/close.png" alt="">
+    </div>
+      <div style="height: 3vh;border-top: 2px solid #e0e0e0"></div>
+      <div class="close-img">
+        
+      </div>
+    </div>
+    
   </div>
   </nav>
   <!-- 导航模块 end -->
@@ -718,19 +737,15 @@
     document.execCommand('copy');
   }
   var open = document.querySelector('#open');
+  var jupyter=document.querySelector('.jupyter')
+  var close=document.querySelector('#close')
   open.onclick = function () {
-    var iRetrunCode;
-
-    try {
-      var objShell = new ActiveXObject("WScript.Shell");
-      iReturnCode = objShell.Run("cmd.exe /c echo s", 0, true);
-
-    } catch (e) {
-      alert(iRetrunCode);
-      console.dir(e);
-    }
-    console.log("clickopen");
+    jupyter.style.display="block"
   }
+  close.onclick = function () {
+    jupyter.style.display="none"
+  }
+  
 </script>
 
 </html>

@@ -750,7 +750,7 @@
 
   var copycode = document.querySelector('#copycode');
   copycode.onclick = function () {
-    var dummy = document.createElement("input");
+    var dummy = document.createElement("textarea");
 
     // Add it to the document
     document.body.appendChild(dummy);
@@ -759,7 +759,8 @@
     dummy.setAttribute("id", "dummy_id");
 
     // Output the array into it
-    document.getElementById("dummy_id").value = editor.getValue();
+    dummy.value = editor.getValue();
+    console.log(document.getElementById("dummy_id"));
 
     // Select it
     dummy.select();

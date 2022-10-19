@@ -17,3 +17,5 @@ jupyter
 
 openpyxl
 
+matplotlib
+

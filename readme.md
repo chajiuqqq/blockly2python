@@ -8,14 +8,21 @@
 
 项目可以实现实验数据预处理、数据计算、数据回顾分析、数据可视化过程设计过程。项目教学内容非常适合中学阶段的物理、化学、数学、生物等实验数据处理与可视化。通过本课程的学习，学生可以掌握基本的数据分析与可视化的概念与方法。 
 
+demo：http://blockly.chajiuqqq.cn/
+## 开始使用
+点击index.html开始使用
+
+## 安装jupyter方法
+
+1. 下载[miniconda](https://docs.conda.io/en/latest/miniconda.html)，并安装
+2. bin文件夹下包含安装conda环境的脚本。
+   - windows用户依此双击第一、第二个bat文件进行安装，点击第三个bat运行jupyter
+   - mac用户在bin/mac下打开“终端”，运行命令：`source run.sh`，脚本会自动创建环境，安装依赖，并自动打开jupyter notebook
 ## 依赖
-python==3.10
+- python==3.10
+- pandas
+- jupyter
+- openpyxl
+- matplotlib
 
-pandas
-
-jupyter
-
-openpyxl
-
-matplotlib
 

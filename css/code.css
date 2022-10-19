@@ -15,7 +15,7 @@ body {
   margin-top: 1%;
 }
 
-  .CodeMirror{
+.CodeMirror {
   float: left;
   margin-top: 1%;
   width: 25%;
@@ -45,15 +45,14 @@ body {
   background-color: #286090;
 }
 .jupyter {
-  
   background: #ffffff;
   box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 50vh;
+  width: 50%;
+  height: 70vh;
   text-align: left;
   display: flex;
   flex-direction: column;

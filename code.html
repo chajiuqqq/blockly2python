@@ -50,6 +50,10 @@
       width: 0;
       z-index: -1;
     }
+
+    a {
+      color: white;
+    }
   </style>
 </head>
 
@@ -699,34 +703,18 @@
     <div class="btn">
 
       <input type="file" id="input_loadPreload" accept=".xml" class="inputfile">
-      <button id="btn_import"><label for="input_loadPreload">导入工作区</label></button>
-      
-      
-      <button id="btn_export">导出工作区</button>
-      <button id="copycode">复制代码</button>
-      <button id="open">打开 jupyter notebook</button>
+      <button id="btn_import"> <img src="./images/daoru.png" alt="" width="20"> <label
+          for="input_loadPreload">导入工作区</label></button>
+
+
+      <button id="btn_export"> <img src="./images/daochu.png" alt="" width="20"> 导出工作区</button>
+      <button id="copycode"><img src="./images/复制.png" width="25" alt="">复制代码</button>
+      <button id="open"> <a href="http://localhost:8888/tree" target="_blank">打开 jupyter notebook</a> </button>
     </div>
     <div id='blocklyDiv' class="blocklyDiv">
 
     </div>
     <textarea id="code" name="code" spellcheck="false"></textarea>
-
-    <div class="jupyter">
-      <div class="close">
-        <div class="close-title">
-          <h1>打开Jupyter notebook 方式：</h1>
-
-          首先需要下载安装<a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank"
-            style="color: blue;">Miniconda</a>
-        </div>
-        <img id="close" src="images/close.png" alt="">
-      </div>
-      <div style="height: 3vh;border-top: 2px solid #e0e0e0"></div>
-      <div class="close-img">
-
-
-      </div>
-    </div>
 
   </div>
   </nav>
@@ -753,28 +741,47 @@
 
   // console.log(editor.getTextArea().value);
 
-  var workspace = Blockly.inject('blocklyDiv', {
-    toolbox: document.getElementById('toolbox')
-  });
+  var toolbox = document.getElementById("toolbox");
+
+  var options = {
+    toolbox: toolbox,
+    collapse: true,
+    comments: true,
+    disable: true,
+    maxBlocks: Infinity,
+    trashcan: true,
+    horizontalLayout: false,
+    toolboxPosition: "start",
+    css: true,
+    media: "http://blockly.chajiuqqq.cn/media/",
+    rtl: false,
+    scrollbars: true,
+    sounds: true,
+    oneBasedIndex: true,
+    grid: {
+      spacing: 20,
+      length: 1,
+      colour: "#888",
+      snap: false,
+    },
+    zoom: {
+      controls: true,
+      wheel: true,
+      startScale: 1,
+      maxScale: 3,
+      minScale: 0.3,
+      scaleSpeed: 1.2,
+    },
+  };
+
+
+  var workspace = Blockly.inject('blocklyDiv', options);
 
   function myUpdateFunction(event) {
     var code = Blockly.Python.workspaceToCode(workspace);
     editor.getDoc().setValue(code);
   }
   workspace.addChangeListener(myUpdateFunction);
-
-
-  var open = document.querySelector('#open');
-  var jupyter = document.querySelector('.jupyter')
-  var close = document.querySelector('#close')
-  open.onclick = function () {
-    jupyter.style.display = "block"
-  }
-  close.onclick = function () {
-    jupyter.style.display = "none"
-  }
-
-
 
   var copycode = document.querySelector('#copycode');
   copycode.onclick = function () {

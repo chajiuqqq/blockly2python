@@ -31,10 +31,21 @@
         .content-part{
             margin-left: 5vh;
         }
+        #todo li{
+            list-style: square;
+        }
     </style>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LHEJS09B49"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-LHEJS09B49');
+</script>
 <body>
     <!-- 导航模块 start -->
     <nav class="nav">
@@ -94,11 +105,7 @@
 
             <h1 class="content-title">最新版本</h1>
             <div class="content-part">
-                <ul>
-                    <li>
-                        <a href="https://gitee.com/chajiuqqq/blockly2python/releases/download/v1.1/blockly2python.zip">blockly2python-v1.1.zip</a>
-                    </li>
-                </ul>
+                <a href="https://gitee.com/chajiuqqq/blockly2python/releases/download/v1.1/blockly2python.zip">blockly2python-v1.1.zip</a>
             </div>
            
 
@@ -107,6 +114,17 @@
                 2022/10/30 修改了主页；添加了工作区xml导入导出功能；优化了网站细节
             </div>
             
+
+            <h1 class="content-title">ToDo</h1>
+            <div class="content-part">
+                <ul id="todo">
+                    <li>网页集成Python运行环境</li>
+                    <li>提供不同环境的代码切换</li>
+                    <li>替换3.10版本拟合函数，兼容低版本</li>
+                    <li>简化Python安装环境流程</li>
+                </ul>
+                
+            </div>
         </div>
       
     </div>

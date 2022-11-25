@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO优化 -->
+    <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
+    <!-- 网站说明 -->
+    <meta name="description"
+        content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
+    <!-- 关键字 -->
+    <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
+    <!-- 引入favicon图标  -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <!-- 引入初始化样式文件 -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 引入公共样式文件 -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- 引入index.css -->
+    <link rel="stylesheet" href="css/code.css">
+
+    <style>
+        
+        a {color:blue;}
+
+        .content-title{
+            margin: 2vh 5vh;
+        }
+        .content-part{
+            margin-left: 5vh;
+        }
+        #todo li{
+            list-style: square;
+        }
+    </style>
+
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LHEJS09B49"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LHEJS09B49');
+</script>
+<body>
+    <!-- 导航模块 start -->
+    <nav class="nav">
+      <iframe  width="100%" height="80" src="nav.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </nav>
+    <!-- 导航模块 end -->
+
+
+    <!-- main主体模块 start -->
+    <div class="main">
+        <div style="margin:12vh 5vh;  border: 2px solid white;
+        border-radius: 20px; background-color: white; height: 80vh">
+
+            <h1 class="content-title">最新版本</h1>
+            <div class="content-part">
+                <a href="https://gitee.com/chajiuqqq/blockly2python/releases/download/v1.1/blockly2python.zip">blockly2python-v1.1.zip</a>
+            </div>
+           
+
+            <h1 class="content-title">更新日志</h1>
+            <div class="content-part">
+                2022/10/30 修改了主页；添加了工作区xml导入导出功能；优化了网站细节
+            </div>
+            
+
+            <h1 class="content-title">ToDo</h1>
+            <div class="content-part">
+                <ul id="todo">
+                    <li>网页集成Python运行环境</li>
+                    <li>提供不同环境的代码切换</li>
+                    <li>替换3.10版本拟合函数，兼容低版本</li>
+                    <li>简化Python安装环境流程</li>
+                </ul>
+                
+            </div>
+        </div>
+      
+    </div>
+
+
+    <!-- footer模块 start -->
+    <footer class="footer">
+        <div class="w">
+
+            <iframe  width="100%" height="50" src="foot.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        </div>
+    </footer>
+    <!-- footer模块 end -->
+</body>
+</html>

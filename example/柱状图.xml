@@ -1,0 +1,99 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none">
+  <variables>
+    <variable id="o,b=XdvDLD5eT8#+{$Ua">df</variable>
+    <variable id="(dP,oCAGmYCHkN[$7y7L">item</variable>
+  </variables>
+  <block type="import_libs" id="am]S(X~_TOK0P+y_IGpw" x="27" y="55">
+    <field name="sys">win</field>
+    <next>
+      <block type="variables_set" id="tmAE,C%Ari851aBLRcYJ">
+        <field name="VAR" id="o,b=XdvDLD5eT8#+{$Ua">df</field>
+        <value name="VALUE">
+          <block type="pd_create_dataframe" id="5w=O#N:l7e5BibZ5LFCX">
+            <value name="data">
+              <block type="dict_create" id="0o*cJ^?c3Z6E8ah;?4^A">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="dict_component" id="p}|oJ7i|J2F|m07hPlO+">
+                    <value name="k">
+                      <block type="text" id="*.4Qpj(([2*C`O;@JpY4">
+                        <field name="TEXT">A</field>
+                      </block>
+                    </value>
+                    <value name="v">
+                      <block type="fast_list" id="654}|+FeQgDx-^rBH8o#">
+                        <mutation items="3"></mutation>
+                        <value name="ADD0">
+                          <block type="math_number" id="R4(fiK-mdhP5ze-s7r|9">
+                            <field name="NUM">2</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="math_number" id=".d477ZMr[4XrIUmj}N2F">
+                            <field name="NUM">7</field>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="math_number" id="EAu(4+_6iKB4C`[D%bxT">
+                            <field name="NUM">12</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="dict_component" id="JqTpR[nd9l3T2mUDHA:D">
+                    <value name="k">
+                      <block type="text" id="5Atwh?ZZQx-iO#q`wmO@">
+                        <field name="TEXT">B</field>
+                      </block>
+                    </value>
+                    <value name="v">
+                      <block type="fast_list" id="-sj25Crj,pKeEFf|QYo~">
+                        <mutation items="3"></mutation>
+                        <value name="ADD0">
+                          <block type="math_number" id="6*_{(VKniO!.]I:w%yjf">
+                            <field name="NUM">23</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="math_number" id="}ltfY1Xdf3@of+jjnHi]">
+                            <field name="NUM">17</field>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="math_number" id="4YEs1O3YDD6v-*P*y$ex">
+                            <field name="NUM">44</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="Pt;kq[,8zRk-c2C?TZ*H">
+            <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+            <value name="VALUE">
+              <block type="pd_plot_bar" id="q)-3-cP#)~H;=2,%x3Jl">
+                <field name="variable" id="o,b=XdvDLD5eT8#+{$Ua">df</field>
+                <field name="barh">bar</field>
+                <field name="stacked">T</field>
+                <field name="alpha">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="show_img" id="J/BzzT[v8?VzLkqap/Wq">
+                <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

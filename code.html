@@ -51,8 +51,18 @@
       z-index: -1;
     }
 
-    a {
+    #open a{
       color: white;
+    }
+
+    #switch_div{
+      margin-top: 12vh;
+    }
+
+    #switch_div a{
+      text-decoration: underline;
+      color: blue;
+      font-size: medium;
     }
   </style>
 </head>
@@ -649,65 +659,23 @@
 <body>
   <!-- 导航模块 start -->
   <nav class="nav">
-    <div class="nav-banner">
-      <div class="img">
-
-      </div>
-      <div class="title">
-        从 Blockly 到 Python 数据分析与可视化
-      </div>
-
-      <div class="navitems">
-        <!-- <ul>
-                    <li> -->
-        <a href="index.html">
-          <div class="box">
-            <div class="front">主页</div>
-            <div class="bottom">进入</div>
-          </div>
-        </a>
-        <!-- </li>
-                    <li> -->
-        <a href="example.html">
-          <div class="box">
-            <div class="front">教程</div>
-            <div class="bottom">进入</div>
-          </div>
-        </a>
-        <!-- </li>
-                    <li> -->
-        <a href="code.html">
-          <div class="box">
-            <div class="front">编辑区</div>
-            <div class="bottom">进入</div>
-          </div>
-        </a>
-        <a href="download.html">
-          <div class="box">
-            <div class="front">下载</div>
-            <div class="bottom">进入</div>
-          </div>
-        </a>
-        <!-- </li>
-                </ul> -->
-      </div>
-
-
-    </div>
+    <iframe  width="100%" height="80" src="nav.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no"></iframe>
   </nav>
   <!-- 导航模块 end -->
 
 
   <!-- main主体模块 start -->
   <div class="main">
+    <div id="switch_div">
+      [<a href="code-new.html">转到新版</a>]
+    </div>
     <div class="btn">
-
       <input type="file" id="input_loadPreload" accept=".xml" class="inputfile">
       <button id="btn_import"> <img src="./images/daoru.png" alt="" width="20"> <label
-          for="input_loadPreload">导入工作区</label></button>
+          for="input_loadPreload">导入工作区(.xml)</label></button>
 
 
-      <button id="btn_export"> <img src="./images/daochu.png" alt="" width="20"> 导出工作区</button>
+      <button id="btn_export"> <img src="./images/daochu.png" alt="" width="20"> 导出工作区(.xml)</button>
       <button id="copycode"><img src="./images/复制.png" width="25" alt="">复制代码</button>
       <button id="open"> <a href="http://localhost:8888/tree" target="_blank">打开 jupyter notebook</a> </button>
     </div>
@@ -717,14 +685,13 @@
     <textarea id="code" name="code" spellcheck="false"></textarea>
 
   </div>
-  </nav>
-  <!-- 导航模块 end -->
 
 
   <!-- footer模块 start -->
   <footer class="footer">
     <div class="w">
 
+      <iframe  width="100%" height="50" src="foot.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no"></iframe>
     </div>
   </footer>
   <!-- footer模块 end -->
@@ -753,7 +720,7 @@
     horizontalLayout: false,
     toolboxPosition: "start",
     css: true,
-    media: "http://blockly.chajiuqqq.cn/media/",
+    media: "http://1.15.243.22/media/",
     rtl: false,
     scrollbars: true,
     sounds: true,

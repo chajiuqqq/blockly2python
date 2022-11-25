@@ -14,6 +14,12 @@
     padding-left: 5%;
 }
 
+/* 去掉li的小圆点 */
+
+li {
+    list-style: none
+}
+
 .left>ul {
     max-width: 96%;
 }

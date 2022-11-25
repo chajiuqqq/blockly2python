@@ -8,7 +8,8 @@
     <!-- SEO优化 -->
     <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
     <!-- 网站说明 -->
-    <meta name="description" content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
+    <meta name="description"
+        content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
     <!-- 关键字 -->
     <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
     <!-- 引入favicon图标  -->
@@ -20,57 +21,23 @@
     <!-- 引入example.css -->
     <link rel="stylesheet" href="css/example.css">
     <link rel="stylesheet" href="lib/codemirror.css">
-    
+
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LHEJS09B49"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LHEJS09B49');
+</script>
 
 <body>
     <!-- 导航模块 start -->
     <nav class="nav">
-        <div class="nav-banner">
-            <div class="img">
-
-            </div>
-            <div class="title">
-                从 Blockly 到 Python 数据分析与可视化
-            </div>
-
-            <div class="navitems">
-                <!-- <ul>
-                    <li> -->
-                <a href="index.html">
-                    <div class="box">
-                        <div class="front">主页</div>
-                        <div class="bottom">进入</div>
-                    </div>
-                </a>
-                <!-- </li>
-                    <li> -->
-                <a href="example.html">
-                    <div class="box">
-                        <div class="front">教程</div>
-                        <div class="bottom">进入</div>
-                    </div>
-                </a>
-                <!-- </li>
-                    <li> -->
-                <a href="code.html">
-                    <div class="box">
-                        <div class="front">编辑区</div>
-                        <div class="bottom">进入</div>
-                    </div>
-                </a>
-                <a href="download.html">
-                    <div class="box">
-                        <div class="front">下载</div>
-                        <div class="bottom">进入</div>
-                    </div>
-                </a>
-                <!-- </li>
-                </ul> -->
-            </div>
-
-
-        </div>
+        <iframe width="100%" height="80" src="nav.html" frameborder="no" marginwidth="0" marginheight="0"
+            scrolling="no"></iframe>
     </nav>
     <!-- 导航模块 end -->
 
@@ -80,32 +47,39 @@
         <div class="left">
             <ul>
                 <li>
-                    <a href="#Blockly概述" target="_self" class="list-title" style="color:#3DA19F;font-weight: 600;">第一章 Blockly概述</a>
+                    <a href="#Blockly概述" target="_self" class="list-title" style="color:#3DA19F;font-weight: 600;">第一章
+                        Blockly概述</a>
                 </li>
                 <li>
-                    <a href="#Blockly与数据分析开发环境搭建与使用" target="_self" class="list-title" title="Blockly 与数据分析开发环境搭建与使用">第二章 Blockly 与数据分析开发环境搭建与使用</a>
-                 
+                    <a href="#Blockly与数据分析开发环境搭建与使用" target="_self" class="list-title"
+                        title="Blockly 与数据分析开发环境搭建与使用">第二章 Blockly 与数据分析开发环境搭建与使用</a>
+
                 </li>
                 <li>
-                    <a href="#Blockly数据输入、显示、可视化" target="_self" class="list-title" title="Blockly 数据输入、显示、可视化">第三章 Blockly 数据输入、显示、可视化</a>
-                  
+                    <a href="#Blockly数据输入、显示、可视化" target="_self" class="list-title" title="Blockly 数据输入、显示、可视化">第三章
+                        Blockly 数据输入、显示、可视化</a>
+
                 </li>
                 <li>
-                    <a href="#弹簧实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究弹力和弹簧伸长的关系（胡克定律）实验"> 第四章 探究弹力和弹簧伸长的关系（胡克定律）实验</a>
-                  
+                    <a href="#弹簧实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究弹力和弹簧伸长的关系（胡克定律）实验">
+                        第四章 探究弹力和弹簧伸长的关系（胡克定律）实验</a>
+
                 </li>
 
                 <li>
-                    <a href="#单摆实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究单摆测定重力加速度实验"> 第五章 探究单摆测定重力加速度实验</a>
-                    
+                    <a href="#单摆实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究单摆测定重力加速度实验"> 第五章
+                        探究单摆测定重力加速度实验</a>
+
                 </li>
                 <li>
-                    <a href="#电阻实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究测定金属的电阻率"> 第六章 探究测定金属的电阻率</a>
-                   
+                    <a href="#电阻实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究测定金属的电阻率"> 第六章
+                        探究测定金属的电阻率</a>
+
                 </li>
                 <li>
-                    <a href="#伏安实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究描绘小电珠的伏安特性曲线"> 第七章 探究描绘小电珠的伏安特性曲线</a>
-                    
+                    <a href="#伏安实验" target="_self" class="list-title " title="基于 Blockly 数据分析模块探究描绘小电珠的伏安特性曲线"> 第七章
+                        探究描绘小电珠的伏安特性曲线</a>
+
                 </li>
             </ul>
         </div>
@@ -119,7 +93,12 @@
                 <h1 id="Blockly概述" style="margin-top: 0;">第一章 Blockly概述</h1>
 
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="Blockly2Python 教程 - Blockly 概述">观看本节视频讲解</a></div> -->
-             
+
+                <video width="100%" controls>
+                    <source src="video/1.1.m4v" type="video/mp4">
+                    <source src="video/1.1.webm" type="video/webm">
+                </video>
+
                 <iframe src="pdf/chp1.pdf" frameborder="0"></iframe>
 
 
@@ -127,7 +106,10 @@
                 <h1 id="Blockly与数据分析开发环境搭建与使用">第二章 Blockly 与数据分析开发环境搭建与使用</h1>
 
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="Blockly与数据分析开发环境搭建与使用">观看本节视频讲解</a></div> -->
-             
+                <video width="100%" controls>
+                    <source src="video/2.1.m4v" type="video/mp4">
+                    <source src="video/2.1.webm" type="video/webm">
+                </video>
                 <iframe src="pdf/chp2.pdf" frameborder="0"></iframe>
 
 
@@ -135,20 +117,29 @@
                 <h1 id="Blockly数据输入、显示、可视化">第三章 Blockly 数据输入、显示、可视化</h1>
 
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="Blockly 数据输入、显示、可视化">观看本节视频讲解</a></div> -->
-             
+                <video width="100%" controls>
+                    <source src="video/3.1.m4v" type="video/mp4">
+                    <source src="video/3.1.webm" type="video/webm">
+                </video>
                 <iframe src="pdf/chp3.pdf" frameborder="0"></iframe>
 
-
+                <video width="100%" controls>
+                    <source src="video/3.2.m4v" type="video/mp4">
+                    <source src="video/3.2.webm" type="video/webm">
+                </video>
                 <iframe src="pdf/chp3-2.pdf" frameborder="0"></iframe>
 
 
 
                 <!-- chapter4 -->
                 <h1 id="弹簧实验">第四章 探究弹力和弹簧伸长的关系（胡克定律）实验</h1>
+                <video width="100%" controls>
+                    <source src="video/4.1.m4v" type="video/mp4">
+                    <source src="video/4.1.webm" type="video/webm">
+                </video>
 
-                
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="基于 Blockly 数据分析模块探究弹力和弹簧伸长的关系（胡克定律）实验">观看本节视频讲解</a></div> -->
-             
+
                 <iframe src="pdf/chp4.pdf" frameborder="0"></iframe>
 
 
@@ -157,16 +148,22 @@
                 <h1 id="单摆实验">第五章 探究单摆测定重力加速度实验</h1>
 
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="基于 Blockly 数据分析模块探究单摆测定重力加速度实验">观看本节视频讲解</a></div> -->
-             
+                <video width="100%" controls>
+                    <source src="video/5.1.m4v" type="video/mp4">
+                    <source src="video/5.1.webm" type="video/webm">
+                </video>
                 <iframe src="pdf/chp5.pdf" frameborder="0"></iframe>
 
 
 
                 <!-- chapter6 -->
                 <h1 id="电阻实验">第六章 探究测定金属的电阻率</h1>
-               
+
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="基于 Blockly 数据分析模块探究测定金属的电阻率">观看本节视频讲解</a></div> -->
-             
+                <video width="100%" controls>
+                    <source src="video/6.1.m4v" type="video/mp4">
+                    <source src="video/6.1.webm" type="video/webm">
+                </video>
                 <iframe src="pdf/chp6.pdf" frameborder="0"></iframe>
 
 
@@ -175,7 +172,10 @@
                 <h1 id="伏安实验">第七章 探究描绘小电珠的伏安特性曲线</h1>
 
                 <!-- <div class="video"><a href="video/chp4.mp4" target="_blank" title="基于 Blockly 数据分析模块探究描绘小电珠的伏安特性曲线">观看本节视频讲解</a></div> -->
-             
+                <video width="100%" controls>
+                    <source src="video/7.1.m4v" type="video/mp4">
+                    <source src="video/7.1.webm" type="video/webm">
+                </video>
                 <iframe src="pdf/chp7.pdf" frameborder="0"></iframe>
 
 
@@ -191,6 +191,8 @@
     <footer class="footer">
         <div class="w">
 
+            <iframe width="100%" height="50" src="foot.html" frameborder="no" marginwidth="0" marginheight="0"
+                scrolling="no"></iframe>
         </div>
     </footer>
     <!-- footer模块 end -->
@@ -198,13 +200,13 @@
 <script>
     var list = document.querySelector('.left').querySelectorAll('a');
     for (var i = 0; i < list.length; i++) {
-        list[i].onclick = function() {
+        list[i].onclick = function () {
             for (var i = 0; i < list.length; i++) {
                 list[i].style.color = 'black';
-                list[i].style.fontWeight=400
+                list[i].style.fontWeight = 400
             }
             this.style.color = '#3DA19F';
-            this.style.fontWeight=600
+            this.style.fontWeight = 600
         }
     }
 </script>

@@ -836,3 +836,17 @@ Blockly.Blocks['pd_set_index'] = {
     this.jsonInit(set_index_json);
   }
 };
+
+Blockly.Blocks['show_img'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("显示")
+        .appendField(new Blockly.FieldVariable("item"), "variable")
+        .appendField("的图表");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

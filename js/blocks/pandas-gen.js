@@ -7,6 +7,7 @@ Blockly.Python["import_libs"] = function (block) {
   code += `import matplotlib.pyplot as plt\n`;
   code += `import statistics\n`;
   code += `import math\n`;
+  code += `import io, base64\n`
   code += `plt.rcParams["axes.unicode_minus"]=False\n`;
 
   if (dropdown_sys == "mac") {
@@ -319,4 +320,17 @@ Blockly.Python["pd_copy"] = function (block) {
   var code = `${variable_item}.copy()`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Python.ORDER_NONE];
+};
+
+
+Blockly.Python['show_img'] = function(block) {
+  var variable_variable = Blockly.Python.nameDB_.getName(block.getFieldValue('variable'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble Python into code variable.
+  var code = 
+  `_fig = ${variable_variable}.get_figure()
+_buf = io.BytesIO()
+_fig.savefig(_buf, format='png')
+_buf.seek(0)
+_img_str = 'data:image/png;base64,' + base64.b64encode(_buf.read()).decode('UTF-8')\n`;
+  return code;
 };

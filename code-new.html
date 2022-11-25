@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO优化 -->
+  <title>从Blockly到Python数据分析与可视化——一个基于Blockly可视化拖拽的教学平台</title>
+  <!-- 网站说明 -->
+  <meta name="description"
+    content="从Blockly到Python数据分析与可视化——本网站基于 Blockly 可视化拖拽的编程方法，设计了一套从 Blockly 到 Python 数据分析与可视化的教学平台及案例。">
+  <!-- 关键字 -->
+  <meta name="keywords" content="Blockly,Python,数据分析,可视化,拖拽,编程">
+  <!-- 引入favicon图标  -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <!-- 引入初始化样式文件 -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- 引入公共样式文件 -->
+  <link rel="stylesheet" href="css/common.css">
+  <!-- 引入index.css -->
+  <link rel="stylesheet" href="css/code-new.css">
+
+  <style>
+    .inputfile {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      width: 0;
+      z-index: -1;
+    }
+
+    #open a{
+      color: white;
+    }
+
+    #switch_div{
+      margin-top: 12vh;
+    }
+
+    #switch_div a{
+      text-decoration: underline;
+      color: blue;
+      font-size: medium;
+    }
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LHEJS09B49"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LHEJS09B49');
+</script>
+
+
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category name="逻辑" colour="#5b80a5">
+    <block type="controls_if"></block>
+    <block type="logic_compare">
+      <field name="OP">EQ</field>
+    </block>
+    <block type="logic_operation">
+      <field name="OP">AND</field>
+    </block>
+    <block type="logic_negate"></block>
+    <block type="logic_boolean">
+      <field name="BOOL">TRUE</field>
+    </block>
+    <block type="logic_null"></block>
+    <block type="logic_ternary"></block>
+  </category>
+  <category name="循环" colour="#5ba55b">
+    <block type="controls_repeat_ext">
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_whileUntil">
+      <field name="MODE">WHILE</field>
+    </block>
+    <block type="controls_for">
+      <field name="VAR" id=".+9r$@{juJXwn)$X7}]r">i</field>
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+      <value name="BY">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_forEach">
+      <field name="VAR" id="KA6I`gr5-a3$98@=BE=9">j</field>
+    </block>
+    <block type="controls_flow_statements">
+      <field name="FLOW">BREAK</field>
+    </block>
+  </category>
+  <category name="运算" colour="#5b67a5">
+    <block type="math_number">
+      <field name="NUM">0</field>
+    </block>
+    <block type="math_arithmetic">
+      <field name="OP">ADD</field>
+      <value name="A">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="B">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_single">
+      <field name="OP">ROOT</field>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">9</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_trig">
+      <field name="OP">SIN</field>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">45</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_constant">
+      <field name="CONSTANT">PI</field>
+    </block>
+    <block type="math_number_property">
+      <mutation divisor_input="false"></mutation>
+      <field name="PROPERTY">EVEN</field>
+      <value name="NUMBER_TO_CHECK">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_round">
+      <field name="OP">ROUND</field>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">3.1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_on_list">
+      <mutation op="SUM"></mutation>
+      <field name="OP">SUM</field>
+    </block>
+    <block type="math_modulo">
+      <value name="DIVIDEND">
+        <shadow type="math_number">
+          <field name="NUM">64</field>
+        </shadow>
+      </value>
+      <value name="DIVISOR">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_constrain">
+      <value name="VALUE">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+      <value name="LOW">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="HIGH">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_random_int">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_random_float"></block>
+  </category>
+  <category name="文本" colour="#5ba58c">
+    <block type="text">
+      <field name="TEXT"></field>
+    </block>
+    <block type="text_join">
+      <mutation items="2"></mutation>
+    </block>
+    <block type="text_append">
+      <field name="VAR" id="D%FL,0d]Q#ka:0-8DT0R">item</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_length">
+      <value name="VALUE">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_isEmpty">
+      <value name="VALUE">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_indexOf">
+      <field name="END">FIRST</field>
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR" id="CQ_~T|qxy~Q3HM+0[wQg">text</field>
+        </block>
+      </value>
+      <value name="FIND">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_charAt">
+      <mutation at="true"></mutation>
+      <field name="WHERE">FROM_START</field>
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR" id="CQ_~T|qxy~Q3HM+0[wQg">text</field>
+        </block>
+      </value>
+    </block>
+    <block type="text_getSubstring">
+      <mutation at1="true" at2="true"></mutation>
+      <field name="WHERE1">FROM_START</field>
+      <field name="WHERE2">FROM_START</field>
+      <value name="STRING">
+        <block type="variables_get">
+          <field name="VAR" id="CQ_~T|qxy~Q3HM+0[wQg">text</field>
+        </block>
+      </value>
+    </block>
+    <block type="text_changeCase">
+      <field name="CASE">UPPERCASE</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_trim">
+      <field name="MODE">BOTH</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_print">
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_prompt_ext">
+      <mutation type="TEXT"></mutation>
+      <field name="TYPE">TEXT</field>
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <category name="列表" colour="#745ba5">
+    <block type="lists_create_with">
+      <mutation items="0"></mutation>
+    </block>
+    <block type="lists_create_with">
+      <mutation items="3"></mutation>
+    </block>
+    <block type="fast_list"></block>
+    <block type="lists_repeat">
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">5</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="lists_length"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_indexOf">
+      <field name="END">FIRST</field>
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR" id="HEOPqc2Uv4z+4OABZH]u">list</field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_getIndex">
+      <mutation statement="false" at="true"></mutation>
+      <field name="MODE">GET</field>
+      <field name="WHERE">FROM_START</field>
+      <value name="VALUE">
+        <block type="variables_get">
+          <field name="VAR" id="HEOPqc2Uv4z+4OABZH]u">list</field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_setIndex">
+      <mutation at="true"></mutation>
+      <field name="MODE">SET</field>
+      <field name="WHERE">FROM_START</field>
+      <value name="LIST">
+        <block type="variables_get">
+          <field name="VAR" id="HEOPqc2Uv4z+4OABZH]u">list</field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_getSublist">
+      <mutation at1="true" at2="true"></mutation>
+      <field name="WHERE1">FROM_START</field>
+      <field name="WHERE2">FROM_START</field>
+      <value name="LIST">
+        <block type="variables_get">
+          <field name="VAR" id="HEOPqc2Uv4z+4OABZH]u">list</field>
+        </block>
+      </value>
+    </block>
+    <block type="lists_split">
+      <mutation mode="SPLIT"></mutation>
+      <field name="MODE">SPLIT</field>
+      <value name="DELIM">
+        <shadow type="text">
+          <field name="TEXT">,</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="lists_sort">
+      <field name="TYPE">NUMERIC</field>
+      <field name="DIRECTION">1</field>
+    </block>
+  </category>
+  <category name="颜色" colour="#a5745b">
+    <block type="colour_picker">
+      <field name="COLOUR">#ff0000</field>
+    </block>
+    <block type="colour_random"></block>
+    <block type="colour_rgb">
+      <value name="RED">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+      <value name="GREEN">
+        <shadow type="math_number">
+          <field name="NUM">50</field>
+        </shadow>
+      </value>
+      <value name="BLUE">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="colour_blend">
+      <value name="COLOUR1">
+        <shadow type="colour_picker">
+          <field name="COLOUR">#ff0000</field>
+        </shadow>
+      </value>
+      <value name="COLOUR2">
+        <shadow type="colour_picker">
+          <field name="COLOUR">#3333ff</field>
+        </shadow>
+      </value>
+      <value name="RATIO">
+        <shadow type="math_number">
+          <field name="NUM">0.5</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <category name="字典和元组" colour="#5b67a5">
+    <block type="dict_create"></block>
+    <block type="dict_component">
+      <value name="k">
+        <block type="text">
+          <field name="TEXT">键</field>
+        </block>
+      </value>
+    </block>
+    <block type="dict_component">
+      <value name="v">
+        <block type="text">
+          <field name="TEXT">值</field>
+        </block>
+      </value>
+    </block>
+    <block type="dict_get_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="NAME">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="dict_set_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="item">
+        <block type="dict_component">
+          <value name="k">
+            <shadow type="text">
+              <field name="TEXT"></field>
+            </shadow>
+          </value>
+        </block>
+      </value>
+    </block>
+    <block type="dict_del_by_key">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <value name="key">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="tuple">
+      <value name="v1">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+      <value name="v2">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="tuple_get_by_index">
+      <field name="item" id="`La8xp?Qb-G`aqL^MQQ@">item</field>
+      <field name="index">1</field>
+    </block>
+  </category>
+  <sep></sep>
+  <category name="数据表格" colour="#5ba55b">
+    <block type="import_libs">
+      <field name="sys">win</field>
+    </block>
+    <block type="pd_create_dataframe">
+      <value name="data">
+        <block type="dict_create"></block>
+      </value>
+    </block>
+    <block type="pd_read_excel">
+      <value name="NAME">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_copy">
+      <field name="item" id="/t@IbvD6G**LKqXi8w}=">item</field>
+    </block>
+    <block type="pd_set_columns">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+    </block>
+    <block type="pd_set_index">
+      <field name="item" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <field name="type">col</field>
+    </block>
+    <block type="pd_get_column_by_loc">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="NAME">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_get_column_by_name">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="NAME">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_get_row_by_loc">
+      <field name="NAME" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="NAME">
+        <block type="math_number">
+          <field name="NUM">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_set_new_column">
+      <field name="variable" id="/t@IbvD6G**LKqXi8w}=">item</field>
+      <value name="column_name">
+        <block type="text">
+          <field name="TEXT"></field>
+        </block>
+      </value>
+    </block>
+  </category>
+  <category name="数据表格运算" colour="#5ba58c">
+    <block type="math_calculate">
+      <field name="operator">+</field>
+    </block>
+    <block type="math_mean"></block>
+    <block type="py_statistics"></block>
+  </category>
+  <category name="数据预处理" colour="#995ba5">
+    <block type="pd_describe">
+      <field name="item" id="[(sY)c;(Sk(2F=^PIom%">item</field>
+    </block>
+    <block type="pd_dropna">
+      <field name="item" id="[(sY)c;(Sk(2F=^PIom%">item</field>
+    </block>
+    <block type="pd_fillna">
+      <field name="item" id="[(sY)c;(Sk(2F=^PIom%">item</field>
+      <field name="strategy">ffill</field>
+    </block>
+  </category>
+  <category name="可视化" colour="#5b67a5">
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot">
+          <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="color">#ff0000</field>
+          <field name="linestyle">solid</field>
+          <field name="x">1</field>
+          <field name="y">2</field>
+          <field name="marker">None</field>
+          <field name="markerfacecolor">#ff0000</field>
+          <field name="markersize">0</field>
+        </block>
+      </value>
+    </block>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot_scatter">
+          <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="NAME">.</field>
+          <field name="color">#ff0000</field>
+          <field name="s">20</field>
+          <field name="xlabel">1</field>
+          <field name="ylabel">2</field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_plot_scatter_line">
+      <field name="data" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <field name="color">#ff0000</field>
+      <field name="s">1</field>
+      <field name="xlabel">1</field>
+      <field name="ylabel">2</field>
+      <field name="line_color">#ff0000</field>
+      <field name="line_style">solid</field>
+      <field name="thin">1</field>
+    </block>
+    <block type="variables_set">
+      <field name="VAR" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+      <value name="VALUE">
+        <block type="pd_plot_bar">
+          <field name="variable" id="(dP,oCAGmYCHkN[$7y7L">item</field>
+          <field name="barh">bar</field>
+          <field name="stacked">T</field>
+          <field name="alpha">1</field>
+        </block>
+      </value>
+    </block>
+    <block type="pd_save_fig">
+      <field name="filename">example</field>
+      <field name="ext">.png</field>
+    </block>
+    
+    <block type="show_img">
+    </block>
+
+  </category>
+  <category name="输出" colour="#5b80a5">
+    <block type="output_print"></block>
+  </category>
+  <category name="公式" colour="#995ba5">
+    <block type="formula_g">
+      <value name="T">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="L">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="formula_rou">
+      <value name="d">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="l">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="R">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <sep></sep>
+  <category name="变量" colour="#a55b80" custom="VARIABLE"></category>
+  <category name="函数" colour="#995ba5" custom="PROCEDURE"></category>
+</xml>
+
+<body>
+  <!-- 导航模块 start -->
+  <nav class="nav">
+    <iframe  width="100%" height="80" src="nav.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+  </nav>
+  <!-- 导航模块 end -->
+
+
+  <!-- main主体模块 start -->
+  <div class="main">
+
+    <div id="switch_div">
+      [<a href="code.html">转到旧版</a>]
+    </div>
+    <div class="btn">
+      <input type="file" id="input_loadPreload" accept=".xml" class="inputfile">
+      <button id="btn_import"> <img src="./images/daoru.png" alt="" width="20"> <label
+          for="input_loadPreload">导入工作区(.xml)</label></button>
+      <button id="btn_export"> <img src="./images/daochu.png" alt="" width="20"> 导出工作区(.xml)</button>
+      <button id="copycode"><img src="./images/复制.png" width="25" alt="">复制代码</button>
+      <button id="run">运行</button>
+      <button id="clear">清空结果</button>
+
+    </div>
+    <div id='blocklyDiv' class="blocklyDiv">
+
+    </div>
+    <textarea id="code" name="code" spellcheck="false"></textarea>
+
+    <div id="output"></div>
+    <div id="pyplotdiv"><img id="pyplotfigure" style="width: 100% ;"/></div>
+
+  </div>
+
+
+  <!-- footer模块 start -->
+  <footer class="footer">
+    <div class="w">
+
+      <iframe  width="100%" height="50" src="foot.html"  frameborder="no" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </div>
+  </footer>
+  <!-- footer模块 end -->
+</body>
+
+<!-- 引入blockly js文件 -->
+<script src="js/blockly_compressed.js"></script>
+<script src="js/blocks_compressed.js"></script>
+<script src="js/msg/zh-hans.js"></script>
+<script src="js/python_compressed.js"></script>
+<script src="js/blocks/pandas.js"></script>
+<script src="js/blocks/pandas-gen.js"></script>
+<script src="js/blocks/dict.js"></script>
+<script src="js/blocks/dict-gen.js"></script>
+<script src="js/blocks/output.js"></script>
+<script src="js/blocks/output-gen.js"></script>
+<script src="js/blocks/math.js"></script>
+<script src="js/blocks/math-gen.js"></script>
+<script src="js/blocks/formula.js"></script>
+<script src="js/blocks/formula-gen.js"></script>
+<script src="js/mutators.js"></script>
+<script src="js/blocks/tuple.js"></script>
+<script src="js/blocks/tuple-gen.js"></script>
+<script src="js/workspaceTool.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/pyodide/v0.16.1/full/pyodide.js"></script> -->
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+<script src="js/pyodideSetup.js"></script>
+
+<link rel="stylesheet" href="codemirror-5.65.3/lib/codemirror.css" />
+<script type="text/javascript" src="codemirror-5.65.3/lib/codemirror.js"></script>
+<script type="text/javascript" src="codemirror-5.65.3/mode/python/python.js"></script>
+<script>
+  // textarea code
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true,
+    mode: "python"
+  });
+
+  // console.log(editor.getTextArea().value);
+
+  var toolbox = document.getElementById("toolbox");
+
+  var options = {
+    toolbox: toolbox,
+    collapse: true,
+    comments: true,
+    disable: true,
+    maxBlocks: Infinity,
+    trashcan: true,
+    horizontalLayout: false,
+    toolboxPosition: "start",
+    css: true,
+    media: "http://1.15.243.22/media/",
+    rtl: false,
+    scrollbars: true,
+    sounds: true,
+    oneBasedIndex: true,
+    grid: {
+      spacing: 20,
+      length: 1,
+      colour: "#888",
+      snap: false,
+    },
+    zoom: {
+      controls: true,
+      wheel: true,
+      startScale: 1,
+      maxScale: 3,
+      minScale: 0.3,
+      scaleSpeed: 1.2,
+    },
+  };
+
+
+  var workspace = Blockly.inject('blocklyDiv', options);
+
+  function updateCodeArea(event) {
+    var code = Blockly.Python.workspaceToCode(workspace);
+    editor.getDoc().setValue(code);
+  }
+  workspace.addChangeListener(updateCodeArea);
+
+  var copycode = document.querySelector('#copycode');
+  copycode.onclick = function () {
+    var dummy = document.createElement("textarea");
+
+    // Add it to the document
+    document.body.appendChild(dummy);
+
+    // Set its ID
+    dummy.setAttribute("id", "dummy_id");
+
+    // Output the array into it
+    dummy.value = editor.getValue();
+    console.log(document.getElementById("dummy_id"));
+
+    // Select it
+    dummy.select();
+
+    // Copy its contents
+    document.execCommand("copy");
+
+    // Remove it as its not needed anymore
+    document.body.removeChild(dummy);
+    window.alert('复制成功！')
+  }
+
+
+  document.getElementById('btn_export').addEventListener('click', function () {
+    workspaceTool.exportXML(workspace)
+  })
+
+  document.getElementById('input_loadPreload').addEventListener('change', function () {
+    workspaceTool.importXML(event.target.files[0], workspace)
+  })
+  document.getElementById('run').addEventListener('click',runPython)
+  document.getElementById('clear').addEventListener('click', clearOutput)
+
+</script>
+
+
+</html>

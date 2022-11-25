@@ -92,6 +92,9 @@ workspaceTool.importXML = function (file, workspace) {
 
             // Import pre-loaded workspace XML.
             controller.importPreloadFromTree(tree, workspace);
+
+            //更新代码区
+            updateCodeArea()
         } catch (e) {
             var msg = 'Cannot load XML from file.';
             alert(msg);

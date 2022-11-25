@@ -1,0 +1,70 @@
+body {
+  background: url(../upload/bgc.png) no-repeat;
+  background-size: cover;
+}
+
+.main {
+  overflow: hidden;
+  margin-left: 2%;
+  
+  margin-right: 2%;
+}
+
+.blocklyDiv {
+  float: left;
+  width: 50%;
+  height: 77vh;
+  margin-top: 1%;
+}
+
+#output{
+  float: left;
+  width: 25%;
+  height: 77vh;
+  margin-top: 1%;
+  background-color: rgba(255,255,255,0.5);
+  padding: 1%;
+  overflow:auto;
+  white-space: pre-line;
+}
+
+#pyplotdiv{
+  
+  float: left;
+  width: 25%;
+  height: 33vh;
+}
+
+#output_label{
+  float: right;
+  font-size: medium;
+}
+
+.CodeMirror {
+  float: left;
+  margin-top: 1%;
+  width: 25%;
+  height: 77vh !important;
+  /* box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.3); */
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* margin-top: 12vh; */
+}
+
+.btn button {
+  background-color: #337ab7;
+  color: white;
+  width: 7rem;
+  height: 5vh;
+  margin: 0 1%;
+  border-radius: 5%;
+  box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, 0.1);
+}
+
+.btn button:hover {
+  background-color: #286090;
+}

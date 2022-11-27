@@ -34,6 +34,10 @@
         #todo li{
             list-style: square;
         }
+
+        .todo-finish{
+            text-decoration:line-through;
+        }
     </style>
 
 </head>
@@ -61,7 +65,7 @@
 
             <h1 class="content-title">平台最新版本</h1>
             <div class="content-part">
-                <a href="https://gitee.com/chajiuqqq/blockly2python/releases/download/v1.1/blockly2python.zip">blockly2python-v1.1.zip</a>
+                <a href="https://gitee.com/chajiuqqq/blockly2python/releases/download/v1.2/blockly2python.zip">blockly2python-v1.1.zip</a>
             </div>
            
             <h1 class="content-title">课件资料下载</h1>
@@ -73,6 +77,8 @@
 
             <h1 class="content-title">更新日志</h1>
             <div class="content-part">
+                2022/11/27 修改了教程页面，添加了2022师资培训资料；基本实现了blockly编程、python代码浏览器运行的功能（目前无法读取本地文件）；提供了示例blockly可以一键导入运行
+                <br>
                 2022/10/30 修改了主页；添加了工作区xml导入导出功能；优化了网站细节
             </div>
             
@@ -80,8 +86,8 @@
             <h1 class="content-title">ToDo</h1>
             <div class="content-part">
                 <ul id="todo">
-                    <li>网页集成Python运行环境</li>
-                    <li>提供不同环境的代码切换</li>
+                    <li class="todo-finish">网页集成Python运行环境</li>
+                    <li class="todo-finish">提供不同环境的代码切换</li>
                     <li>替换3.10版本拟合函数，兼容低版本</li>
                     <li>简化Python安装环境流程</li>
                 </ul>

@@ -67,3 +67,14 @@ body {
 .btn button:hover {
   background-color: #286090;
 }
+
+.sample-div{
+  margin-top: 1%;
+  float: left;
+}
+
+.sample-div button{
+  border: solid 1px gray;
+  margin-left: 5px;
+  width: 50px;
+}

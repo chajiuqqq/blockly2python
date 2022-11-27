@@ -665,6 +665,15 @@
     <div id="switch_div">
       [<a href="code.html">转到旧版</a>]
     </div>
+    <div class="sample-div">
+      预置示例：
+      <select name="" id="sample-select">
+        <option value="">请选择示例</option>
+        <option value="折线图">折线图示例</option>
+        <option value="柱状图">柱状图示例</option>
+      </select>
+      <button id="importSampleBtn">载入</button>
+    </div>
     <div class="btn">
       <input type="file" id="input_loadPreload" accept=".xml" class="inputfile">
       <button id="btn_import"> <img src="./images/daoru.png" alt="" width="20"> <label
@@ -810,7 +819,13 @@
   })
   document.getElementById('run').addEventListener('click',runPython)
   document.getElementById('clear').addEventListener('click', clearOutput)
+  
+  document.getElementById('importSampleBtn').addEventListener('click', function(){
+    sample = document.getElementById('sample-select').value
+    workspaceTool.importSampleXML(sample,workspace)
 
+  })
+  
 </script>
 
 

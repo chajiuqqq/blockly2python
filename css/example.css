@@ -7,7 +7,7 @@
 .left {
     float: left;
     width: 22%;
-    height: 85vh;
+    height: 100%;
     padding: 25px 0px 60px 20px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -44,8 +44,12 @@ li {
     font-size: 16px;
 } */
 
-.list-title {
+.main-title {
     font-size: 18px;
+}
+.sub-title{
+    margin-left: 30px;
+    font-size: 15px;
 }
 
 .right {
